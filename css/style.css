@@ -1,0 +1,260 @@
+/* =========================================================
+   BẢN VIỆT — Custom styles (bổ trợ cho Tailwind CDN)
+   ========================================================= */
+
+/* Font smoothing cho dễ đọc */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* ---------- HEADER: Glassmorphism ---------- */
+/* ---------- HEADER: Glassmorphism (xanh nhẹ) ---------- */
+.bv-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(7, 78, 170, 0.85); /* blue-50 nhẹ, bán trong suốt */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Khi scroll → đậm hơn chút + viền + bóng nhẹ */
+.bv-header.is-scrolled {
+  background-color: rgba(219, 234, 254, 0.9); /* blue-100 */
+  border-bottom-color: #bfdbfe; /* blue-200 */
+  box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+}
+
+/* ---------- NAV HOVER PILL ---------- */
+.bv-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.85rem;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #334155; /* slate-700 */
+  border-radius: 0.6rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.bv-nav-link:hover,
+.bv-nav-link[aria-expanded="true"] {
+  background-color: rgba(241, 245, 249, 0.85); /* slate-100/85 */
+  color: #0f172a;
+}
+
+/* ---------- DROPDOWN MEGA MENU ---------- */
+.bv-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  width: 560px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+.bv-dropdown.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Card đơn vị trong dropdown */
+.bv-mega-card {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  border-radius: 0.85rem;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+.bv-mega-card:hover {
+  background-color: #f8fafc; /* slate-50 */
+  border-color: #e2e8f0; /* slate-200 */
+  transform: translateY(-1px);
+}
+
+/* ---------- SEARCH SPOTLIGHT MODAL ---------- */
+.bv-search-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s;
+}
+.bv-search-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bv-search-panel {
+  position: fixed;
+  top: 15vh;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px) scale(0.98);
+  z-index: 101;
+  width: calc(100% - 2rem);
+  max-width: 640px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+}
+.bv-search-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* ---------- MOBILE DRAWER ---------- */
+.bv-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(15, 23, 42, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+.bv-drawer-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bv-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 91;
+  width: min(88vw, 360px);
+  background: #fff;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+.bv-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Scrollbar drawer tinh tế */
+.bv-drawer::-webkit-scrollbar {
+  width: 6px;
+}
+.bv-drawer::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 3px;
+}
+
+/* ---------- MOBILE ACCORDION ---------- */
+.bv-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.bv-accordion-content.is-open {
+  max-height: 500px;
+}
+
+/* ---------- Reduce motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+
+
+/* =========================================================
+   HERO BADGES (glassmorphism + floating + hover glow)
+   ========================================================= */
+.bv-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 12px;
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 195, 255, 0.2);
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.25s ease, background-color 0.25s ease;
+  animation: bvFloat 3.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Chấm sáng cyan (giả lập nơ-ron) */
+.bv-hero-badge .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.9),
+    0 0 16px rgba(56, 189, 248, 0.5);
+  flex-shrink: 0;
+  animation: bvPulse 2s ease-in-out infinite;
+}
+
+/* Nhãn chữ */
+.bv-hero-badge .label {
+  color: #e0f2fe; /* cyan-100 */
+  letter-spacing: 0.01em;
+}
+
+/* Hover: sáng viền + scale + glow mạnh */
+.bv-hero-badge:hover {
+  border-color: #38bdf8;
+  background-color: rgba(15, 23, 42, 0.7);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6),
+    0 4px 20px rgba(0, 195, 255, 0.35);
+  transform: scale(1.06);
+  /* tạm dừng floating khi hover để tránh lệch cảm giác */
+  animation-play-state: paused;
+}
+
+/* Keyframes */
+@keyframes bvFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes bvPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.9),
+      0 0 16px rgba(56, 189, 248, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 1),
+      0 0 24px rgba(56, 189, 248, 0.7);
+  }
+}

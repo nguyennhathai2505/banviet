@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bản Việt — Education & Technology</title>
+  <meta name="description" content="Bản Việt - Hệ sinh thái giáo dục và công nghệ hàng đầu Việt Nam." />
+
+  <!-- Google Fonts: Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#2563eb',
+              indigo: '#4f46e5',
+            },
+          },
+          boxShadow: {
+            header: '0 1px 2px 0 rgba(15, 23, 42, 0.04)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="font-sans bg-slate-50 text-slate-700 antialiased">
+
+  <!-- ========== HEADER (Web Component) ========== -->
+  <bv-header></bv-header>
+
+  <!-- ========== MAIN ========== -->
+  <!-- ========== MAIN ========== -->
+  <main class="min-h-[70vh]">
+
+    <!-- ========== HERO SECTION ========== -->
+    <section
+      class="relative w-full min-h-[600px] lg:min-h-[720px] overflow-hidden
+             bg-cover bg-center bg-no-repeat"
+      style="background-image: url('./assets/images/hero-section-background.png');"
+    >
+      <!-- Overlay gradient: tối bên trái → trong suốt bên phải -->
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/10 lg:to-transparent"></div>
+      <!-- Overlay phụ dọc để tăng contrast phần dưới (mobile) -->
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent lg:hidden"></div>
+
+      <!-- ========== CONTENT ========== -->
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+        <div class="grid grid-cols-1 lg:grid-cols-[45fr_55fr] items-center min-h-[600px] lg:min-h-[720px] gap-10 lg:gap-0 py-16 lg:py-0">
+
+          <!-- ===================== CỘT TRÁI ===================== -->
+          <div class="flex flex-col justify-center max-w-xl">
+
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 self-start px-4 py-1.5 rounded-full
+                        bg-white/10 backdrop-blur-md border border-cyan-400/40
+                        shadow-[0_0_20px_rgba(56,189,248,0.25)] mb-6">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span class="text-xs sm:text-sm font-semibold text-cyan-100 tracking-wide">
+                Nền Tảng Giáo Dục Công Nghệ Hàng Đầu
+              </span>
+            </div>
+
+            <!-- Heading H1 -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
+              Hệ sinh thái<br class="hidden sm:block" />
+              <span class="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
+                giáo dục &amp; công nghệ
+              </span><br class="hidden sm:block" />
+              <span class="text-white">Bản Việt</span>
+            </h1>
+
+            <!-- Sub-heading -->
+            <p class="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed max-w-lg">
+              Kết nối công nghệ và giáo dục để tạo ra những sản phẩm đột phá,
+              phục vụ hàng triệu học sinh, sinh viên và nhà trường Việt Nam.
+            </p>
+
+            <!-- CTA -->
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#lien-he"
+                class="inline-flex items-center justify-center gap-2 px-6 sm:px-7 h-12 rounded-full
+                       text-white text-sm sm:text-base font-semibold
+                       bg-gradient-to-r from-cyan-500 to-blue-600
+                       shadow-[0_0_30px_rgba(56,189,248,0.4)]
+                       hover:shadow-[0_0_40px_rgba(56,189,248,0.7)]
+                       hover:scale-[1.03] transition-all">
+                Liên hệ hợp tác
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+
+              <a href="#linh-vuc"
+                class="inline-flex items-center justify-center gap-2 px-6 sm:px-7 h-12 rounded-full
+                       text-white text-sm sm:text-base font-semibold
+                       border border-white/30 bg-white/5 backdrop-blur-md
+                       hover:bg-white/10 hover:border-white/50 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                Xem demo
+              </a>
+            </div>
+
+            <!-- Trust stats (nhỏ, tùy chọn) -->
+            <div class="mt-10 flex items-center gap-6 text-white/80 text-sm">
+              <div>
+                <div class="text-xl sm:text-2xl font-extrabold text-white">1M+</div>
+                <div class="text-xs text-slate-400">Học sinh</div>
+              </div>
+              <div class="w-px h-8 bg-white/20"></div>
+              <div>
+                <div class="text-xl sm:text-2xl font-extrabold text-white">500+</div>
+                <div class="text-xs text-slate-400">Nhà trường</div>
+              </div>
+              <div class="w-px h-8 bg-white/20"></div>
+              <div>
+                <div class="text-xl sm:text-2xl font-extrabold text-white">4</div>
+                <div class="text-xs text-slate-400">Đơn vị</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===================== CỘT PHẢI: VISUAL + BADGES ===================== -->
+          <div class="relative w-full">
+
+            <!-- Wrapper visual (giữ tỉ lệ để đặt badge absolute theo % chuẩn) -->
+            <div class="relative w-full aspect-[4/3] lg:aspect-auto lg:h-[600px]">
+
+              <!-- ==== BADGES (desktop/tablet: absolute) ==== -->
+              <div class="hidden lg:block">
+                <!-- DanhLingo: top-left -->
+                <div class="bv-hero-badge absolute" style="top: 13%; left: 30%; animation-delay: 0s;">
+                  <span class="dot"></span><span class="label">DanhLingo</span>
+                </div>
+
+                <!-- Aitechco: top-right -->
+                <div class="bv-hero-badge absolute" style="top: 13%; right: -12%; animation-delay: 0.8s;">
+                  <span class="dot"></span><span class="label">Aitechco</span>
+                </div>
+
+                <!-- Điểm 10+: bottom-left -->
+                <div class="bv-hero-badge absolute" style="bottom: 38%; left: 30%; animation-delay: 1.6s;">
+                  <span class="dot"></span><span class="label">Điểm 10+</span>
+                </div>
+
+                <!-- Schooli: bottom-right -->
+                <div class="bv-hero-badge absolute" style="bottom: 35%; right: -12%; animation-delay: 2.4s;">
+                  <span class="dot"></span><span class="label">Schooli</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ==== BADGES (mobile: grid 2x2) ==== -->
+            <div class="lg:hidden grid grid-cols-2 gap-3 mt-8">
+              <div class="bv-hero-badge justify-center" style="animation-delay: 0s;">
+                <span class="dot"></span><span class="label">DanhLingo</span>
+              </div>
+              <div class="bv-hero-badge justify-center" style="animation-delay: 0.8s;">
+                <span class="dot"></span><span class="label">Aitechco</span>
+              </div>
+              <div class="bv-hero-badge justify-center" style="animation-delay: 1.6s;">
+                <span class="dot"></span><span class="label">Điểm 10+</span>
+              </div>
+              <div class="bv-hero-badge justify-center" style="animation-delay: 2.4s;">
+                <span class="dot"></span><span class="label">Schooli</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section lĩnh vực hoạt động -->
+    <section id="linh-vuc" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <!-- ... giữ nguyên section bạn đã sửa trước đó ... -->
+    </section>
+
+    <!-- Filler dài để test sticky header -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
+      <div class="h-[60vh] rounded-3xl bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center text-slate-400 text-sm">
+        ↓ Scroll để xem header sticky + glassmorphism ↓
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER (Web Component) ========== -->
+  <bv-footer></bv-footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="./js/components.js"></script>
+  <script src="./js/header.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
