@@ -1,11 +1,8 @@
 /* =========================================================
    BẢN VIỆT — Header interactions
-   (scroll effect, dropdown, search modal, mobile drawer)
-   Chạy SAU khi components.js define xong.
    ========================================================= */
 
 (function initHeader() {
-  // Chờ <bv-header> được render (custom element connectedCallback)
   const tryInit = () => {
     const header = document.getElementById('bvHeader');
     if (!header) {
@@ -20,7 +17,6 @@
   tryInit();
 })();
 
-/* ---------- 1. Scroll effect ---------- */
 function setupScrollEffect(header) {
   const onScroll = () => {
     if (window.scrollY > 8) header.classList.add('is-scrolled');
@@ -30,11 +26,9 @@ function setupScrollEffect(header) {
   window.addEventListener('scroll', onScroll, { passive: true });
 }
 
-/* ---------- 2. Desktop dropdown ---------- */
 function setupDropdown() {
   const wrapper = document.querySelector('[data-dropdown-wrapper]');
   if (!wrapper) return;
-
   const toggle = wrapper.querySelector('[data-dropdown-toggle]');
   const menu = wrapper.querySelector('[data-dropdown-menu]');
   const chevron = wrapper.querySelector('[data-chevron]');
@@ -52,31 +46,22 @@ function setupDropdown() {
     if (chevron) chevron.style.transform = 'rotate(0deg)';
   };
 
-  // Hover mở/đóng (có delay nhỏ để tránh giật)
   wrapper.addEventListener('mouseenter', open);
   wrapper.addEventListener('mouseleave', () => {
     closeTimer = setTimeout(close, 120);
   });
-
-  // Click toggle (cho touch / keyboard)
   toggle.addEventListener('click', (e) => {
     e.preventDefault();
-    const isOpen = menu.classList.contains('is-open');
-    isOpen ? close() : open();
+    menu.classList.contains('is-open') ? close() : open();
   });
-
-  // Đóng khi click ra ngoài
   document.addEventListener('click', (e) => {
     if (!wrapper.contains(e.target)) close();
   });
-
-  // Đóng bằng ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') close();
   });
 }
 
-/* ---------- 3. Search spotlight modal ---------- */
 function setupSearchModal() {
   const backdrop = document.querySelector('[data-search-backdrop]');
   const panel = document.querySelector('[data-search-panel]');
@@ -103,7 +88,6 @@ function setupSearchModal() {
   });
 }
 
-/* ---------- 4. Mobile drawer + accordion ---------- */
 function setupMobileDrawer() {
   const backdrop = document.querySelector('[data-drawer-backdrop]');
   const drawer = document.querySelector('[data-drawer]');
@@ -131,7 +115,6 @@ function setupMobileDrawer() {
     if (e.key === 'Escape') close();
   });
 
-  // Accordion trong drawer
   const accToggle = drawer.querySelector('[data-accordion-toggle]');
   const accContent = drawer.querySelector('[data-accordion-content]');
   const accChevron = drawer.querySelector('[data-accordion-chevron]');

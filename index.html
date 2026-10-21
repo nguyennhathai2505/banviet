@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bản Việt — Education & Technology</title>
-  <meta name="description" content="Bản Việt - Hệ sinh thái giáo dục và công nghệ hàng đầu Việt Nam." />
+  <title>Bản Việt — EdTech Ecosystem · Bản sắc Việt, Giá trị toàn cầu</title>
+  <meta name="description" content="Bản Việt — Hệ sinh thái EdTech hàng đầu Việt Nam từ 2010. Kiến tạo thế hệ học tập thông minh bằng công nghệ & cá nhân hóa." />
 
-  <!-- Google Fonts: Be Vietnam Pro -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -19,481 +17,1037 @@
         extend: {
           fontFamily: {
             sans: ['"Be Vietnam Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
           },
           colors: {
-            brand: {
-              blue: '#2563eb',
-              indigo: '#4f46e5',
+            navy: {
+              DEFAULT: '#0A192F',
+              900: '#0F233A',
+              800: '#152B44',
+              700: '#1B3550',
             },
+            electric: {
+              DEFAULT: '#0066FF',
+              600: '#0052CC',
+              500: '#1A7AFF',
+            },
+            cyanAccent: '#00D2D3',
+            amberBrand: '#F59E0B',
           },
           boxShadow: {
-            header: '0 1px 2px 0 rgba(15, 23, 42, 0.04)',
+            'glow-blue': '0 0 40px -8px rgba(0, 102, 255, 0.35)',
+            'glow-cyan': '0 0 30px -6px rgba(0, 210, 211, 0.45)',
+            'card': '0 4px 20px -8px rgba(15, 35, 58, 0.08)',
+            'card-hover': '0 20px 40px -12px rgba(15, 35, 58, 0.15)',
           },
         },
       },
     };
   </script>
 
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/style.css" />
 </head>
-<body class="font-sans bg-slate-50 text-slate-700 antialiased">
+<body class="font-sans bg-white text-navy antialiased overflow-x-hidden">
 
-  <!-- ========== HEADER (Web Component) ========== -->
+  <!-- ========== HEADER ========== -->
   <bv-header></bv-header>
 
   <!-- ========== MAIN ========== -->
-  <!-- ========== MAIN ========== -->
-  <main class="min-h-[70vh]">
+  <main>
 
-    <!-- ========== HERO SECTION ========== -->
-    <section
-      class="relative w-full min-h-[600px] lg:min-h-[720px] overflow-hidden
-             bg-cover bg-center bg-no-repeat"
-      style="background-image: url('./assets/images/hero-section-background.png');"
-    >
-      <!-- Overlay gradient: tối bên trái → trong suốt bên phải -->
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/10 lg:to-transparent"></div>
-      <!-- Overlay phụ dọc để tăng contrast phần dưới (mobile) -->
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent lg:hidden"></div>
+    <!-- ================================================== -->
+    <!-- SECTION 2: HERO — SMART LEARNING MATRIX            -->
+    <!-- ================================================== -->
+    <section class="relative overflow-hidden bg-white">
+      <!-- Atmosphere: Tech grid pattern -->
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none"></div>
+      <!-- Atmosphere: Glow mesh -->
+      <div class="absolute -top-40 -left-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-electric/10 via-cyanAccent/5 to-transparent blur-3xl pointer-events-none"></div>
+      <div class="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-cyanAccent/10 via-electric/5 to-transparent blur-3xl pointer-events-none"></div>
 
-      <!-- ========== CONTENT ========== -->
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-        <div class="grid grid-cols-1 lg:grid-cols-[45fr_55fr] items-center min-h-[600px] lg:min-h-[720px] gap-10 lg:gap-0 py-16 lg:py-0">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-          <!-- ===================== CỘT TRÁI ===================== -->
-          <div class="flex flex-col justify-center max-w-xl">
+          <!-- ================= CỘT TRÁI (7/12) ================= -->
+          <div class="lg:col-span-7">
 
-            <!-- Badge -->
-            <div class="inline-flex items-center gap-2 self-start px-4 py-1.5 rounded-full
-                        bg-white/10 backdrop-blur-md border border-cyan-400/40
-                        shadow-[0_0_20px_rgba(56,189,248,0.25)] mb-6">
-              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-              <span class="text-xs sm:text-sm font-semibold text-cyan-100 tracking-wide">
-                Nền Tảng Giáo Dục Công Nghệ Hàng Đầu
+            <!-- Tag monospace -->
+            <div class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-navy/[0.04] border border-navy/[0.08]">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyanAccent animate-pulse"></span>
+              <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-navy/70 uppercase">
+                Kỷ nguyên Giáo dục 4.0 · Bản Việt since 2010
               </span>
             </div>
 
-            <!-- Heading H1 -->
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
-              Hệ sinh thái<br class="hidden sm:block" />
-              <span class="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
-                giáo dục &amp; công nghệ
-              </span><br class="hidden sm:block" />
-              <span class="text-white">Bản Việt</span>
+            <!-- H1 -->
+            <h1 class="reveal-up reveal-delay-1 mt-6 text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.08] text-navy">
+              Bản sắc Việt —
+              <span class="bg-gradient-to-r from-electric via-cyanAccent to-electric bg-clip-text text-transparent">
+                Giá trị toàn cầu
+              </span>
             </h1>
 
-            <!-- Sub-heading -->
-            <p class="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed max-w-lg">
-              Kết nối công nghệ và giáo dục để tạo ra những sản phẩm đột phá,
-              phục vụ hàng triệu học sinh, sinh viên và nhà trường Việt Nam.
+            <p class="reveal-up reveal-delay-2 mt-4 text-xl sm:text-2xl font-semibold text-navy/80 leading-snug">
+              Kiến tạo thế hệ học tập thông minh bằng Nền tảng Công nghệ &amp; Cá nhân hóa.
+            </p>
+
+            <!-- Lead text -->
+            <p class="reveal-up reveal-delay-3 mt-5 text-base sm:text-lg text-navy/65 leading-relaxed max-w-2xl">
+              Sự kết hợp giữa <strong class="text-navy font-semibold">15+ năm kinh nghiệm giáo dục thực nghiệm</strong>
+              (Điểm 10+, DanhLingo) và <strong class="text-navy font-semibold">sức mạnh hạ tầng công nghệ số</strong>
+              (Aitechco, Schooli) — tạo nên hệ sinh thái EdTech toàn diện, đưa tri thức Việt vươn tầm quốc tế.
             </p>
 
             <!-- CTA -->
-            <div class="mt-8 flex flex-wrap items-center gap-3">
-              <a href="#lien-he"
-                class="inline-flex items-center justify-center gap-2 px-6 sm:px-7 h-12 rounded-full
+            <div class="reveal-up reveal-delay-4 mt-8 flex flex-wrap items-center gap-3">
+              <a href="#he-sinh-thai"
+                class="group inline-flex items-center gap-2 px-6 sm:px-7 h-12 rounded-xl
                        text-white text-sm sm:text-base font-semibold
-                       bg-gradient-to-r from-cyan-500 to-blue-600
-                       shadow-[0_0_30px_rgba(56,189,248,0.4)]
-                       hover:shadow-[0_0_40px_rgba(56,189,248,0.7)]
-                       hover:scale-[1.03] transition-all">
-                Liên hệ hợp tác
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                       bg-gradient-to-r from-navy via-navy-800 to-electric
+                       shadow-glow-blue
+                       hover:shadow-[0_0_50px_-8px_rgba(0,102,255,0.6)]
+                       hover:-translate-y-0.5 transition-all">
+                Khám phá Hệ sinh thái
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-0.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </a>
 
-              <a href="#linh-vuc"
-                class="inline-flex items-center justify-center gap-2 px-6 sm:px-7 h-12 rounded-full
-                       text-white text-sm sm:text-base font-semibold
-                       border border-white/30 bg-white/5 backdrop-blur-md
-                       hover:bg-white/10 hover:border-white/50 transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                Xem demo
-              </a>
+              <button type="button" data-ai-quiz-open
+                class="inline-flex items-center gap-2 px-6 sm:px-7 h-12 rounded-xl
+                       text-navy text-sm sm:text-base font-semibold
+                       bg-white border border-navy/15
+                       hover:border-electric hover:bg-electric/[0.03]
+                       hover:-translate-y-0.5 transition-all">
+                Trắc nghiệm lộ trình AI
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-amberBrand"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </button>
             </div>
 
-            <!-- Trust stats (nhỏ, tùy chọn) -->
-            <div class="mt-10 flex items-center gap-6 text-white/80 text-sm">
-              <div>
-                <div class="text-xl sm:text-2xl font-extrabold text-white">1M+</div>
-                <div class="text-xs text-slate-400">Học sinh</div>
+            <!-- Mini trust row -->
+            <div class="reveal-up reveal-delay-5 mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-navy/50">
+              <div class="flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyanAccent"><path d="M20 6 9 17l-5-5"/></svg>
+                Cambridge Accredited
               </div>
-              <div class="w-px h-8 bg-white/20"></div>
-              <div>
-                <div class="text-xl sm:text-2xl font-extrabold text-white">500+</div>
-                <div class="text-xs text-slate-400">Nhà trường</div>
-              </div>
-              <div class="w-px h-8 bg-white/20"></div>
-              <div>
-                <div class="text-xl sm:text-2xl font-extrabold text-white">4</div>
-                <div class="text-xs text-slate-400">Đơn vị</div>
+              <div class="flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyanAccent"><path d="M20 6 9 17l-5-5"/></svg>
+                Powered by FPT Infrastructure
               </div>
             </div>
+
           </div>
 
-          <!-- ===================== CỘT PHẢI: VISUAL + BADGES ===================== -->
-          <div class="relative w-full">
+          <!-- ================= CỘT PHẢI (5/12) — FLOATING DASHBOARD ================= -->
+          <div class="lg:col-span-5 reveal-up reveal-delay-3">
+            <div class="relative bv-dashboard-wrapper">
 
-            <!-- Wrapper visual (giữ tỉ lệ để đặt badge absolute theo % chuẩn) -->
-            <div class="relative w-full aspect-[4/3] lg:aspect-auto lg:h-[600px]">
+              <!-- Halo glow phía sau dashboard -->
+              <div class="absolute inset-0 bg-gradient-to-br from-electric/20 via-cyanAccent/10 to-transparent blur-3xl rounded-full scale-90 pointer-events-none"></div>
 
-              <!-- ==== BADGES (desktop/tablet: absolute) ==== -->
-              <div class="hidden lg:block">
-                <!-- DanhLingo: top-left -->
-                <div class="bv-hero-badge absolute" style="top: 13%; left: 30%; animation-delay: 0s;">
-                  <span class="dot"></span><span class="label">DanhLingo</span>
+              <!-- Main dashboard card -->
+              <div class="relative bv-dashboard">
+
+                <!-- Top bar -->
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-navy/[0.06]">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
+                  </div>
+                  <span class="font-mono text-[10px] font-bold tracking-wider text-navy/40 uppercase">Learning Analytics</span>
+                  <span class="w-2 h-2 rounded-full bg-cyanAccent animate-pulse"></span>
                 </div>
 
-                <!-- Aitechco: top-right -->
-                <div class="bv-hero-badge absolute" style="top: 13%; right: -12%; animation-delay: 0.8s;">
-                  <span class="dot"></span><span class="label">Aitechco</span>
+                <!-- Mastery card -->
+                <div class="bv-mastery-card">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[11px] font-semibold text-navy/50 uppercase tracking-wider">Mastery</span>
+                    <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                      +12%
+                    </span>
+                  </div>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-3xl font-extrabold text-navy">98</span>
+                    <span class="text-lg font-bold text-navy/40">%</span>
+                  </div>
+                  <!-- Progress bar -->
+                  <div class="mt-3 h-2 rounded-full bg-navy/10 overflow-hidden">
+                    <div class="h-full rounded-full bg-gradient-to-r from-electric to-cyanAccent bv-progress-98"></div>
+                  </div>
+                  <div class="mt-2 flex justify-between text-[10px] font-medium text-navy/40">
+                    <span>0</span><span>Mục tiêu: 100%</span>
+                  </div>
                 </div>
 
-                <!-- Điểm 10+: bottom-left -->
-                <div class="bv-hero-badge absolute" style="bottom: 38%; left: 30%; animation-delay: 1.6s;">
-                  <span class="dot"></span><span class="label">Điểm 10+</span>
+                <!-- Radar chart card -->
+                <div class="bv-radar-card mt-3">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[11px] font-semibold text-navy/50 uppercase tracking-wider">Năng lực</span>
+                    <span class="font-mono text-[10px] text-navy/40">Q4 · 2026</span>
+                  </div>
+                  <!-- Radar SVG -->
+                  <div class="flex items-center justify-center">
+                    <svg viewBox="0 0 200 180" class="w-full max-w-[220px] h-auto">
+                      <!-- Grid triangles -->
+                      <g stroke="rgba(15,35,58,0.08)" stroke-width="1" fill="none">
+                        <polygon points="100,20 172,150 28,150" />
+                        <polygon points="100,50 148,135 52,135" />
+                        <polygon points="100,80 124,120 76,120" />
+                        <line x1="100" y1="20" x2="100" y2="150" />
+                        <line x1="100" y1="20" x2="28" y2="150" />
+                        <line x1="100" y1="20" x2="172" y2="150" />
+                      </g>
+                      <!-- Data polygon -->
+                      <polygon points="100,35 155,140 55,140"
+                        fill="url(#radarFill)" stroke="#0066FF" stroke-width="2"
+                        stroke-linejoin="round" />
+                      <!-- Vertices -->
+                      <g fill="#0066FF">
+                        <circle cx="100" cy="35" r="3" />
+                        <circle cx="155" cy="140" r="3" />
+                        <circle cx="55" cy="140" r="3" />
+                      </g>
+                      <!-- Labels -->
+                      <g font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#0F233A" opacity="0.7">
+                        <text x="100" y="12" text-anchor="middle">TOÁN</text>
+                        <text x="182" y="163" text-anchor="middle">NGOẠI NGỮ</text>
+                        <text x="18" y="163" text-anchor="middle">KHOA HỌC SỐ</text>
+                      </g>
+                      <defs>
+                        <linearGradient id="radarFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#0066FF" stop-opacity="0.3" />
+                          <stop offset="100%" stop-color="#00D2D3" stop-opacity="0.15" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
                 </div>
 
-                <!-- Schooli: bottom-right -->
-                <div class="bv-hero-badge absolute" style="bottom: 35%; right: -12%; animation-delay: 2.4s;">
-                  <span class="dot"></span><span class="label">Schooli</span>
+                <!-- Partner badges -->
+                <div class="mt-3 flex items-center gap-2 flex-wrap">
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-navy/[0.04] border border-navy/[0.06] text-[9px] font-bold text-navy/60 uppercase tracking-wider">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyanAccent"><path d="M12 2 15 8l6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z"/></svg>
+                    Cambridge
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-navy/[0.04] border border-navy/[0.06] text-[9px] font-bold text-navy/60 uppercase tracking-wider">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-electric"><path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/><path d="M14 14h6v6h-6z"/></svg>
+                    FPT Cloud
+                  </span>
+                </div>
+
+              </div>
+
+              <!-- Floating mini card (góc trên phải) -->
+              <div class="bv-float-card bv-float-1 absolute -top-4 -right-4 sm:-top-6 sm:-right-6">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-amberBrand to-orange-500 flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 8l6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-[10px] font-bold text-navy/40 uppercase tracking-wider">Active</div>
+                    <div class="text-sm font-extrabold text-navy">100k+</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating mini card (góc dưới trái) -->
+              <div class="bv-float-card bv-float-2 absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-cyanAccent to-electric flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-[10px] font-bold text-navy/40 uppercase tracking-wider">Campus</div>
+                    <div class="text-sm font-extrabold text-navy">08+</div>
+                  </div>
                 </div>
               </div>
 
             </div>
-
-            <!-- ==== BADGES (mobile: grid 2x2) ==== -->
-            <div class="lg:hidden grid grid-cols-2 gap-3 mt-8">
-              <div class="bv-hero-badge justify-center" style="animation-delay: 0s;">
-                <span class="dot"></span><span class="label">DanhLingo</span>
-              </div>
-              <div class="bv-hero-badge justify-center" style="animation-delay: 0.8s;">
-                <span class="dot"></span><span class="label">Aitechco</span>
-              </div>
-              <div class="bv-hero-badge justify-center" style="animation-delay: 1.6s;">
-                <span class="dot"></span><span class="label">Điểm 10+</span>
-              </div>
-              <div class="bv-hero-badge justify-center" style="animation-delay: 2.4s;">
-                <span class="dot"></span><span class="label">Schooli</span>
-              </div>
-            </div>
-
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ========== SECTION: VỀ CHÚNG TÔI ========== -->
-    <section id="ve-chung-toi" class="bg-white py-20 lg:py-28">
+    <!-- ================================================== -->
+    <!-- PLACEHOLDER CÁC SECTION 3-9 (sẽ code ở Message 2-3) -->
+    <!-- ================================================== -->
+    <!-- ================================================== -->
+    <!-- SECTION 3: LIVE ECOSYSTEM STATS                     -->
+    <!-- ================================================== -->
+    <section id="stats" class="relative bg-white pb-20 lg:pb-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          <!-- ===================== CỘT TRÁI: VISUAL ===================== -->
-          <div class="relative reveal-left">
-            <!-- Blob trang trí -->
-            <div class="absolute -top-8 -left-8 w-72 h-72 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 blur-3xl opacity-70 -z-10"></div>
-            <div class="absolute -bottom-10 -right-6 w-56 h-56 rounded-full bg-gradient-to-tr from-cyan-100 to-blue-100 blur-3xl opacity-60 -z-10"></div>
-
-            <!-- Ảnh chính -->
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-100">
-              <img
-                src="./assets/images/anh-ve-chung-toi.png"
-                alt="Bản Việt — Hoạt động thực tế & công nghệ"
-                class="w-full h-full object-cover aspect-[4/5] sm:aspect-[5/5] lg:aspect-[4/5]"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent pointer-events-none"></div>
+        <div class="relative -mt-10 lg:-mt-16 reveal-up">
+          <!-- Glass Bar -->
+          <div class="bv-glass-bar grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x-0 lg:divide-x divide-navy/[0.06]">
+            <!-- 2010 -->
+            <div class="bv-stat-cell group">
+              <div class="bv-stat-value" data-count="2010" data-suffix="">2010</div>
+              <div class="bv-stat-label">Năm thành lập</div>
+              <div class="bv-stat-sub">15+ năm đồng hành</div>
             </div>
-
-            <!-- Badge góc trên trái -->
-            <div class="bv-about-badge absolute -top-4 -left-3 sm:-top-5 sm:-left-5">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg shadow-blue-500/30">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
-                </div>
-                <div>
-                  <div class="text-lg font-extrabold leading-none bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                    16+ Năm
-                  </div>
-                  <div class="text-[11px] text-slate-500 font-medium mt-1 leading-snug">
-                    Hình thành &amp; phát triển<br />
-                    <span class="text-slate-400">(2010 – 2026)</span>
-                  </div>
-                </div>
-              </div>
+            <!-- 04 -->
+            <div class="bv-stat-cell group">
+              <div class="bv-stat-value" data-count="4" data-prefix="0" data-suffix="">04</div>
+              <div class="bv-stat-label">Trụ cột Hệ sinh thái</div>
+              <div class="bv-stat-sub">Văn hóa · Ngoại ngữ · Tech · Online</div>
             </div>
-
-            <!-- Badge góc dưới phải -->
-            <div class="bv-about-badge absolute -bottom-4 -right-3 sm:-bottom-5 sm:-right-5" style="animation-delay: 1.2s;">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg shadow-cyan-500/30">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4"/><path d="M12 11.5 6.5 17"/><path d="M12 11.5 17.5 17"/></svg>
-                </div>
-                <div>
-                  <div class="text-sm font-bold text-slate-900 leading-tight">
-                    Hệ sinh thái<br />EdTech &amp; AI
-                  </div>
-                  <div class="text-[11px] text-slate-500 font-medium mt-1">
-                    Tiên phong tại Việt Nam
-                  </div>
-                </div>
-              </div>
+            <!-- 08+ -->
+            <div class="bv-stat-cell group">
+              <div class="bv-stat-value" data-count="8" data-prefix="0" data-suffix="+">08+</div>
+              <div class="bv-stat-label">Campus thông minh</div>
+              <div class="bv-stat-sub">TP.HCM &amp; toàn quốc</div>
             </div>
-
+            <!-- 100% -->
+            <div class="bv-stat-cell group">
+              <div class="bv-stat-value" data-count="100" data-suffix="%">100%</div>
+              <div class="bv-stat-label">Giáo viên chuẩn quốc tế</div>
+              <div class="bv-stat-sub">Số hóa học liệu toàn diện</div>
+            </div>
           </div>
-
-          <!-- ===================== CỘT PHẢI: CONTENT ===================== -->
-          <div>
-
-            <!-- Tagline pill -->
-            <span class="reveal-up reveal-delay-1 inline-block px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 font-semibold text-[11px] uppercase tracking-[0.12em]">
-              Về chúng tôi
-            </span>
-
-            <!-- Heading -->
-            <h2 class="reveal-up reveal-delay-2 mt-5 text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-slate-900 leading-[1.15]">
-              Tiên phong kiến tạo giải pháp
-              <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Giáo dục &amp; Hạ tầng Công nghệ số
-              </span>
-            </h2>
-
-            <!-- Đoạn văn -->
-            <div class="reveal-up reveal-delay-3 mt-6 space-y-4 text-slate-600 leading-relaxed">
-              <p>
-                Khởi nguồn từ <strong class="text-slate-800 font-semibold">IAC (2010)</strong>, Bản Việt đã không ngừng
-                mở rộng và kiến tạo một hệ sinh thái giáo dục — công nghệ toàn diện, kết nối
-                nhà trường, giáo viên và hàng triệu học sinh trên khắp Việt Nam.
-              </p>
-              <p>
-                Với sứ mệnh xây dựng <strong class="text-slate-800 font-semibold">nền tảng EdTech ưu việt</strong>,
-                chúng tôi tiên phong ứng dụng AI và hạ tầng số hiện đại vào giáo dục,
-                mang đến trải nghiệm học tập thông minh, hiệu quả và truyền cảm hứng.
-              </p>
-            </div>
-
-            <!-- Key metrics 2x2 -->
-            <div class="reveal-up reveal-delay-4 mt-9 grid grid-cols-2 gap-x-6 gap-y-7">
-              <div class="border-l-2 border-blue-200 pl-4">
-                <div class="text-3xl sm:text-[2rem] font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-none">15+</div>
-                <div class="text-sm text-slate-500 mt-2 font-medium">Năm phát triển</div>
-              </div>
-              <div class="border-l-2 border-blue-200 pl-4">
-                <div class="text-3xl sm:text-[2rem] font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-none">4+</div>
-                <div class="text-sm text-slate-500 mt-2 font-medium">Thương hiệu chủ lực</div>
-              </div>
-              <div class="border-l-2 border-blue-200 pl-4">
-                <div class="text-3xl sm:text-[2rem] font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-none">100k+</div>
-                <div class="text-sm text-slate-500 mt-2 font-medium">Học viên &amp; Người dùng</div>
-              </div>
-              <div class="border-l-2 border-blue-200 pl-4">
-                <div class="text-3xl sm:text-[2rem] font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-none">50+</div>
-                <div class="text-sm text-slate-500 mt-2 font-medium">Đối tác &amp; Trường học</div>
-              </div>
-            </div>
-
-            <!-- CTA phụ -->
-            <div class="reveal-up reveal-delay-5 mt-9">
-              <a href="#linh-vuc"
-                class="inline-flex items-center gap-2 px-5 h-11 rounded-full font-semibold text-sm text-blue-700 bg-blue-50 hover:bg-blue-100 transition-colors group">
-                Tìm hiểu hệ sinh thái
-                <span class="transition-transform group-hover:translate-x-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </span>
-              </a>
-            </div>
-
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ========== SECTION: HỆ THỐNG THƯƠNG HIỆU TRỰC THUỘC ========== -->
-    <section id="linh-vuc" class="bg-slate-50 py-20 lg:py-28">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- ================================================== -->
+    <!-- SECTION 4: INTERACTIVE PATH SELECTOR                -->
+    <!-- ================================================== -->
+    <section id="lo-trinh" class="relative bg-slate-50 py-20 lg:py-28 overflow-hidden">
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none opacity-60"></div>
 
-        <!-- Heading block -->
-        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-          <span class="reveal-up reveal-delay-1 inline-block px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 font-semibold text-[11px] uppercase tracking-[0.12em]">
-            Hệ sinh thái Bản Việt
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Heading -->
+        <div class="text-center max-w-2xl mx-auto mb-10 lg:mb-14">
+          <span class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-electric/[0.06] border border-electric/15">
+            <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-electric uppercase">Chọn lộ trình phù hợp</span>
           </span>
-          <h2 class="reveal-up reveal-delay-2 mt-5 text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-slate-900 leading-[1.15]">
-            Hệ thống
-            <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              thương hiệu trực thuộc
-            </span>
+          <h2 class="reveal-up reveal-delay-1 mt-5 text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-navy leading-[1.15]">
+            Bạn đang tìm giải pháp
+            <span class="bg-gradient-to-r from-electric via-cyanAccent to-electric bg-clip-text text-transparent">cho ai?</span>
           </h2>
-          <p class="reveal-up reveal-delay-3 mt-4 text-slate-600 leading-relaxed">
-            Bốn thương hiệu chiến lược, kết nối thành một hệ sinh thái giáo dục — công nghệ
-            toàn diện phục vụ hàng triệu người dùng Việt Nam.
+          <p class="reveal-up reveal-delay-2 mt-4 text-navy/60 leading-relaxed">
+            Chọn nhóm người dùng để xem giải pháp tối ưu từ hệ sinh thái Bản Việt.
           </p>
         </div>
 
-        <!-- Grid 4 card -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Pill tabs -->
+        <div class="reveal-up reveal-delay-3 flex justify-center mb-8">
+          <div class="bv-tabs inline-flex flex-wrap justify-center gap-1 p-1.5 rounded-2xl bg-white border border-navy/[0.06] shadow-card">
+            <button type="button" data-tab="k12" class="bv-tab is-active">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg>
+              K12 · Phụ huynh &amp; Học sinh
+            </button>
+            <button type="button" data-tab="adult" class="bv-tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+              Người lớn · Ngoại ngữ
+            </button>
+            <button type="button" data-tab="b2b" class="bv-tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
+              Trường học &amp; Đối tác số
+            </button>
+          </div>
+        </div>
 
-          <!-- ===================== CARD 1: DanhLingo ===================== -->
-          <a href="#danhlingo"
-            class="reveal-up reveal-delay-1 group flex flex-col h-full bg-white rounded-2xl border border-slate-200 p-6
-                   hover:border-blue-400 hover:-translate-y-1.5
-                   hover:shadow-xl hover:shadow-blue-500/5
-                   transition-all duration-300">
+        <!-- Panel container -->
+        <div class="reveal-up reveal-delay-4 relative">
 
-            <!-- Header -->
-            <div class="flex items-start justify-between gap-3 mb-5">
-              <div class="h-12 flex items-center">
-                <img src="./assets/images/danhlingo-logo.png" alt="DanhLingo"
-                  class="h-10 w-auto object-contain" loading="lazy" />
+          <!-- Panel K12 -->
+          <div data-panel="k12" class="bv-panel is-active">
+            <div class="bv-path-card">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7">
+                  <div class="flex items-center gap-2 mb-4">
+                    <span class="bv-pill-tag bg-orange-50 text-orange-600 border-orange-100">Điểm 10+</span>
+                    <span class="bv-pill-tag bg-navy/[0.04] text-navy/60 border-navy/[0.06]">Smart Culture &amp; K12</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-navy leading-tight">
+                    Lộ trình học tập cá nhân hóa cho học sinh K12
+                  </h3>
+                  <p class="mt-3 text-navy/65 leading-relaxed">
+                    Mô hình <strong class="text-navy">Blended Learning</strong> kết hợp lớp học thông minh và
+                    báo cáo điểm số tự động — giúp phụ huynh nắm bắt tiến độ, học sinh học đúng trọng tâm.
+                  </p>
+
+                  <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bv-method-card">
+                      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-navy/40">Phương pháp</div>
+                      <div class="mt-1 font-bold text-navy text-sm">Pareto 20/80</div>
+                      <div class="mt-0.5 text-xs text-navy/50">Tập trung 20% cốt lõi</div>
+                    </div>
+                    <div class="bv-method-card">
+                      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-navy/40">Thời gian</div>
+                      <div class="mt-1 font-bold text-navy text-sm">3–6 tháng</div>
+                      <div class="mt-0.5 text-xs text-navy/50">Đạt mục tiêu điểm số</div>
+                    </div>
+                    <div class="bv-method-card">
+                      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-navy/40">Cam kết</div>
+                      <div class="mt-1 font-bold text-navy text-sm">Học thật — Thi thật</div>
+                      <div class="mt-0.5 text-xs text-navy/50">Báo cáo minh bạch</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-7 flex flex-wrap gap-3">
+                    <a href="#khoa-hoc" class="inline-flex items-center gap-2 px-5 h-11 rounded-xl text-white text-sm font-semibold bg-gradient-to-r from-navy to-electric hover:shadow-glow-blue hover:-translate-y-0.5 transition-all">
+                      Xem khóa học K12
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="#diem10" class="inline-flex items-center gap-2 px-5 h-11 rounded-xl text-sm font-semibold text-navy border border-navy/15 hover:border-electric hover:text-electric transition-colors">
+                      Đến Điểm 10+
+                    </a>
+                  </div>
+                </div>
+                <!-- Visual -->
+                <div class="lg:col-span-5">
+                  <div class="bv-visual-panel bg-gradient-to-br from-orange-50 via-white to-amber-50">
+                    <svg viewBox="0 0 240 200" class="w-full h-auto">
+                      <!-- Card progress -->
+                      <rect x="20" y="20" width="200" height="60" rx="10" fill="#fff" stroke="rgba(15,35,58,0.08)"/>
+                      <text x="35" y="42" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#0F233A" opacity="0.5">ĐIỂM TRUNG BÌNH</text>
+                      <text x="35" y="66" font-family="Be Vietnam Pro" font-size="20" font-weight="800" fill="#0F233A">8.9</text>
+                      <text x="68" y="66" font-family="Be Vietnam Pro" font-size="11" fill="#F59E0B">↑ 1.2</text>
+                      <!-- Chart bars -->
+                      <rect x="20" y="100" width="200" height="80" rx="10" fill="#fff" stroke="rgba(15,35,58,0.08)"/>
+                      <g>
+                        <rect x="40" y="140" width="16" height="26" rx="3" fill="#F59E0B" opacity="0.35"/>
+                        <rect x="65" y="128" width="16" height="38" rx="3" fill="#F59E0B" opacity="0.55"/>
+                        <rect x="90" y="120" width="16" height="46" rx="3" fill="#F59E0B" opacity="0.75"/>
+                        <rect x="115" y="112" width="16" height="54" rx="3" fill="#F59E0B"/>
+                        <rect x="140" y="125" width="16" height="41" rx="3" fill="#F59E0B" opacity="0.55"/>
+                        <rect x="165" y="135" width="16" height="31" rx="3" fill="#F59E0B" opacity="0.35"/>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <span class="flex-shrink-0 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider
-                           bg-violet-50 text-violet-700 border border-violet-100">
-                Language
+            </div>
+          </div>
+
+          <!-- Panel Adult -->
+          <div data-panel="adult" class="bv-panel">
+            <div class="bv-path-card">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7">
+                  <div class="flex items-center gap-2 mb-4">
+                    <span class="bv-pill-tag bg-violet-50 text-violet-600 border-violet-100">DanhLingo</span>
+                    <span class="bv-pill-tag bg-navy/[0.04] text-navy/60 border-navy/[0.06]">Rapid Language Engine</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-navy leading-tight">
+                    Giao tiếp thành thạo sau 9 giờ học tối ưu
+                  </h3>
+                  <p class="mt-3 text-navy/65 leading-relaxed">
+                    Phương pháp <strong class="text-navy">Học thật — Thi thật</strong> kết hợp hệ thống bài tập
+                    phản xạ thông minh, giúp người bận rộn đạt kết quả nhanh nhất.
+                  </p>
+
+                  <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bv-method-card">
+                      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-navy/40">Phương pháp</div>
+                      <div class="mt-1 font-bold text-navy text-sm">Phản xạ thông minh</div>
+                      <div class="mt-0.5 text-xs text-navy/50">Bài tập thích ứng</div>
+                    </div>
+                    <div class="bv-method-card">
+                      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-navy/40">Thời gian</div>
+                      <div class="mt-1 font-bold text-navy text-sm">9 giờ</div>
+                      <div class="mt-0.5 text-xs text-navy/50">Giao tiếp cơ bản</div>
+                    </div>
+                    <div class="bv-method-card">
+                      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-navy/40">Lộ trình</div>
+                      <div class="mt-1 font-bold text-navy text-sm">Cá nhân hóa</div>
+                      <div class="mt-0.5 text-xs text-navy/50">AI điều chỉnh</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-7 flex flex-wrap gap-3">
+                    <a href="#khoa-hoc" class="inline-flex items-center gap-2 px-5 h-11 rounded-xl text-white text-sm font-semibold bg-gradient-to-r from-violet-600 to-electric hover:shadow-glow-blue hover:-translate-y-0.5 transition-all">
+                      Xem khóa ngoại ngữ
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="#danhlingo" class="inline-flex items-center gap-2 px-5 h-11 rounded-xl text-sm font-semibold text-navy border border-navy/15 hover:border-electric hover:text-electric transition-colors">
+                      Đến DanhLingo
+                    </a>
+                  </div>
+                </div>
+                <div class="lg:col-span-5">
+                  <div class="bv-visual-panel bg-gradient-to-br from-violet-50 via-white to-indigo-50">
+                    <svg viewBox="0 0 240 200" class="w-full h-auto">
+                      <!-- Chat bubble -->
+                      <rect x="30" y="20" width="150" height="40" rx="12" fill="#7c3aed" opacity="0.9"/>
+                      <text x="45" y="45" font-family="Be Vietnam Pro" font-size="13" font-weight="700" fill="#fff">Hello, how are you?</text>
+                      <rect x="60" y="72" width="150" height="40" rx="12" fill="#fff" stroke="rgba(15,35,58,0.08)"/>
+                      <text x="75" y="97" font-family="Be Vietnam Pro" font-size="13" font-weight="600" fill="#0F233A">I'm fine, thanks!</text>
+                      <!-- Progress dots -->
+                      <g transform="translate(30, 135)">
+                        <circle cx="0" cy="0" r="6" fill="#7c3aed"/>
+                        <circle cx="20" cy="0" r="6" fill="#7c3aed" opacity="0.7"/>
+                        <circle cx="40" cy="0" r="6" fill="#7c3aed" opacity="0.4"/>
+                        <circle cx="60" cy="0" r="6" fill="#7c3aed" opacity="0.2"/>
+                        <text x="80" y="4" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#0F233A" opacity="0.5">LV.3</text>
+                      </g>
+                      <!-- Score -->
+                      <rect x="30" y="155" width="180" height="35" rx="8" fill="#7c3aed" opacity="0.1"/>
+                      <text x="45" y="177" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#7c3aed">MASTERY 92%</text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel B2B -->
+          <div data-panel="b2b" class="bv-panel">
+            <div class="bv-path-card">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7">
+                  <div class="flex items-center gap-2 mb-4">
+                    <span class="bv-pill-tag bg-cyan-50 text-cyan-600 border-cyan-100">Aitechco</span>
+                    <span class="bv-pill-tag bg-navy/[0.04] text-navy/60 border-navy/[0.06]">Schooli</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-navy leading-tight">
+                    Giải pháp EdTech toàn diện cho nhà trường &amp; đối tác
+                  </h3>
+                  <p class="mt-3 text-navy/65 leading-relaxed">
+                    Hạ tầng số <strong class="text-navy">LMS chuyên dụng</strong> kết hợp <strong class="text-navy">lớp học ảo Schooli</strong> —
+                    số hóa toàn diện từ quản trị, giảng dạy đến đánh giá học viên.
+                  </p>
+
+                  <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bv-method-card">
+                      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-navy/40">Nền tảng</div>
+                      <div class="mt-1 font-bold text-navy text-sm">LMS chuyên dụng</div>
+                      <div class="mt-0.5 text-xs text-navy/50">Quản trị tập trung</div>
+                    </div>
+                    <div class="bv-method-card">
+                      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-navy/40">Hạ tầng</div>
+                      <div class="mt-1 font-bold text-navy text-sm">FPT Cloud</div>
+                      <div class="mt-0.5 text-xs text-navy/50">Uptime 99.9%</div>
+                    </div>
+                    <div class="bv-method-card">
+                      <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-navy/40">Lớp học</div>
+                      <div class="mt-1 font-bold text-navy text-sm">Schooli 24/7</div>
+                      <div class="mt-0.5 text-xs text-navy/50">Độ trễ thấp</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-7 flex flex-wrap gap-3">
+                    <a href="#lien-he" class="inline-flex items-center gap-2 px-5 h-11 rounded-xl text-white text-sm font-semibold bg-gradient-to-r from-cyanAccent to-electric hover:shadow-glow-cyan hover:-translate-y-0.5 transition-all">
+                      Nhận tư vấn B2B
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="#aitechco" class="inline-flex items-center gap-2 px-5 h-11 rounded-xl text-sm font-semibold text-navy border border-navy/15 hover:border-electric hover:text-electric transition-colors">
+                      Đến Aitechco
+                    </a>
+                  </div>
+                </div>
+                <div class="lg:col-span-5">
+                  <div class="bv-visual-panel bg-gradient-to-br from-cyan-50 via-white to-blue-50">
+                    <svg viewBox="0 0 240 200" class="w-full h-auto">
+                      <!-- School building -->
+                      <path d="M60 90 L120 55 L180 90 L180 170 L60 170 Z" fill="#fff" stroke="rgba(15,35,58,0.1)"/>
+                      <path d="M120 55 L180 90 L60 90 Z" fill="#00D2D3" opacity="0.9"/>
+                      <rect x="95" y="115" width="50" height="55" rx="4" fill="#0066FF" opacity="0.15"/>
+                      <rect x="105" y="130" width="12" height="12" fill="#0066FF" opacity="0.6"/>
+                      <rect x="123" y="130" width="12" height="12" fill="#0066FF" opacity="0.6"/>
+                      <rect x="105" y="150" width="12" height="12" fill="#0066FF" opacity="0.6"/>
+                      <rect x="123" y="150" width="12" height="12" fill="#0066FF" opacity="0.6"/>
+                      <!-- Signal waves -->
+                      <circle cx="120" cy="55" r="8" fill="#00D2D3"/>
+                      <g stroke="#00D2D3" stroke-width="1.5" fill="none" opacity="0.5">
+                        <path d="M120 30 A25 25 0 0 1 145 55"/>
+                        <path d="M120 20 A35 35 0 0 1 155 55"/>
+                      </g>
+                      <!-- Connection dots -->
+                      <g fill="#0066FF">
+                        <circle cx="40" cy="40" r="4"/>
+                        <circle cx="200" cy="55" r="4"/>
+                        <circle cx="200" cy="160" r="4"/>
+                        <circle cx="40" cy="160" r="4"/>
+                      </g>
+                      <g stroke="#0066FF" stroke-width="1" opacity="0.3" fill="none" stroke-dasharray="2 3">
+                        <path d="M40 40 L120 55"/>
+                        <path d="M200 55 L120 55"/>
+                        <path d="M200 160 L180 170"/>
+                        <path d="M40 160 L60 170"/>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 5: THE 4 PILLARS — BENTO GRID               -->
+    <!-- ================================================== -->
+    <section id="he-sinh-thai" class="relative bg-white py-20 lg:py-28 overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-gradient-to-b from-electric/[0.06] to-transparent blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Heading -->
+        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+          <span class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-electric/[0.06] border border-electric/15">
+            <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-electric uppercase">4 Trụ cột hệ sinh thái</span>
+          </span>
+          <h2 class="reveal-up reveal-delay-1 mt-5 text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-navy leading-[1.15]">
+            Kiến trúc
+            <span class="bg-gradient-to-r from-electric via-cyanAccent to-electric bg-clip-text text-transparent">cộng sinh</span>
+            Giáo dục &amp; Công nghệ
+          </h2>
+          <p class="reveal-up reveal-delay-2 mt-4 text-navy/60 leading-relaxed">
+            Bốn thương hiệu, một hệ sinh thái — mỗi trụ cột đảm nhận một vai trò chiến lược,
+            tạo nên sức mạnh tổng thể vượt trội.
+          </p>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+
+          <!-- THẺ 1 — Điểm 10+ -->
+          <a href="#diem10" class="bv-pillar-card group reveal-up reveal-delay-1 bv-pillar-orange">
+            <div class="bv-pillar-head">
+              <div class="bv-pillar-icon bg-gradient-to-br from-orange-500 to-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="bv-pillar-label text-orange-600">Smart Culture &amp; K12</div>
+                <h3 class="bv-pillar-title">Điểm 10+</h3>
+              </div>
+              <span class="bv-pillar-external">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
               </span>
             </div>
-
-            <!-- Body -->
-            <div class="flex-1">
-              <h3 class="text-lg font-bold text-slate-900">DanhLingo</h3>
-              <p class="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2">
-                Nền tảng học ngoại ngữ thông minh với AI, cá nhân hóa lộ trình cho từng học viên.
-              </p>
+            <p class="bv-pillar-desc">
+              <strong>Blended Learning</strong> — lớp học thông minh kết hợp báo cáo điểm số tự động,
+              đồng hành cùng học sinh K12 trên mọi hành trình.
+            </p>
+            <div class="bv-pillar-tags">
+              <span class="bv-tag">Blended Learning</span>
+              <span class="bv-tag">Báo cáo tự động</span>
             </div>
-
-            <!-- Footer -->
-            <div class="mt-6 pt-4 border-t border-slate-100">
-              <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
-                Khám phá nền tảng
-                <span class="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </span>
+            <div class="bv-pillar-cta">
+              Khám phá giải pháp
+              <span class="bv-pillar-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </span>
             </div>
           </a>
 
-          <!-- ===================== CARD 2: Điểm 10+ ===================== -->
-          <a href="#diem10"
-            class="reveal-up reveal-delay-2 group flex flex-col h-full bg-white rounded-2xl border border-slate-200 p-6
-                   hover:border-blue-400 hover:-translate-y-1.5
-                   hover:shadow-xl hover:shadow-blue-500/5
-                   transition-all duration-300">
-
-            <div class="flex items-start justify-between gap-3 mb-5">
-              <div class="h-12 flex items-center">
-                <img src="./assets/images/diem10cong-logo.png" alt="Điểm 10+"
-                  class="h-10 w-auto object-contain" loading="lazy" />
+          <!-- THẺ 2 — DanhLingo -->
+          <a href="#danhlingo" class="bv-pillar-card group reveal-up reveal-delay-2 bv-pillar-violet">
+            <div class="bv-pillar-head">
+              <div class="bv-pillar-icon bg-gradient-to-br from-violet-600 to-purple-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
               </div>
-              <span class="flex-shrink-0 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider
-                           bg-blue-50 text-blue-700 border border-blue-100">
-                EdTech
+              <div class="flex-1 min-w-0">
+                <div class="bv-pillar-label text-violet-600">Rapid Language Engine</div>
+                <h3 class="bv-pillar-title">DanhLingo</h3>
+              </div>
+              <span class="bv-pillar-external">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
               </span>
             </div>
-
-            <div class="flex-1">
-              <h3 class="text-lg font-bold text-slate-900">Điểm 10+</h3>
-              <p class="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2">
-                Nền tảng học tập &amp; luyện thi trực tuyến, đồng hành cùng học sinh trên mọi hành trình.
-              </p>
+            <p class="bv-pillar-desc">
+              <strong>Giao tiếp sau 9 giờ</strong> — phương pháp tối ưu thời gian kết hợp
+              hệ thống bài tập phản xạ thông minh, cá nhân hóa bởi AI.
+            </p>
+            <div class="bv-pillar-tags">
+              <span class="bv-tag">9 giờ giao tiếp</span>
+              <span class="bv-tag">Phản xạ thông minh</span>
             </div>
-
-            <div class="mt-6 pt-4 border-t border-slate-100">
-              <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
-                Khám phá nền tảng
-                <span class="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </span>
+            <div class="bv-pillar-cta">
+              Khám phá giải pháp
+              <span class="bv-pillar-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </span>
             </div>
           </a>
 
-          <!-- ===================== CARD 3: Aitechco ===================== -->
-          <a href="#aitechco"
-            class="reveal-up reveal-delay-3 group flex flex-col h-full bg-white rounded-2xl border border-slate-200 p-6
-                   hover:border-blue-400 hover:-translate-y-1.5
-                   hover:shadow-xl hover:shadow-blue-500/5
-                   transition-all duration-300">
-
-            <div class="flex items-start justify-between gap-3 mb-5">
-              <div class="h-12 flex items-center">
-                <img src="./assets/images/aitechco-logo.png" alt="Aitechco"
-                  class="h-10 w-auto object-contain" loading="lazy" />
+          <!-- THẺ 3 — Aitechco -->
+          <a href="#aitechco" class="bv-pillar-card group reveal-up reveal-delay-3 bv-pillar-cyan">
+            <div class="bv-pillar-head">
+              <div class="bv-pillar-icon bg-gradient-to-br from-cyanAccent to-electric">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2"/><path d="M15 2v2"/><path d="M9 20v2"/><path d="M15 20v2"/><path d="M2 9h2"/><path d="M2 15h2"/><path d="M20 9h2"/><path d="M20 15h2"/></svg>
               </div>
-              <span class="flex-shrink-0 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider
-                           bg-indigo-50 text-indigo-700 border border-indigo-100">
-                AI Solution
+              <div class="flex-1 min-w-0">
+                <div class="bv-pillar-label text-cyan-600">EdTech Core &amp; Infrastructure</div>
+                <h3 class="bv-pillar-title">Aitechco</h3>
+              </div>
+              <span class="bv-pillar-external">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
               </span>
             </div>
-
-            <div class="flex-1">
-              <h3 class="text-lg font-bold text-slate-900">Aitechco</h3>
-              <p class="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2">
-                Hạ tầng số &amp; giải pháp ứng dụng AI, kiến tạo nền tảng công nghệ cho tương lai.
-              </p>
+            <p class="bv-pillar-desc">
+              Xây dựng <strong>LMS, giải pháp trường học số</strong> và liên minh hạ tầng
+              với FPT — nền tảng công nghệ cho toàn hệ sinh thái.
+            </p>
+            <div class="bv-pillar-tags">
+              <span class="bv-tag">LMS chuyên dụng</span>
+              <span class="bv-tag">FPT Infrastructure</span>
             </div>
-
-            <div class="mt-6 pt-4 border-t border-slate-100">
-              <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
-                Khám phá nền tảng
-                <span class="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </span>
+            <div class="bv-pillar-cta">
+              Khám phá giải pháp
+              <span class="bv-pillar-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </span>
             </div>
           </a>
 
-          <!-- ===================== CARD 4: Schooli ===================== -->
-          <a href="#schooli"
-            class="reveal-up reveal-delay-4 group flex flex-col h-full bg-white rounded-2xl border border-slate-200 p-6
-                   hover:border-blue-400 hover:-translate-y-1.5
-                   hover:shadow-xl hover:shadow-blue-500/5
-                   transition-all duration-300">
-
-            <div class="flex items-start justify-between gap-3 mb-5">
-              <div class="h-12 flex items-center">
-                <img src="./assets/images/schooli-logo.png" alt="Schooli"
-                  class="h-10 w-auto object-contain" loading="lazy" />
+          <!-- THẺ 4 — Schooli (gradient) -->
+          <a href="#schooli" class="bv-pillar-card bv-pillar-gradient group reveal-up reveal-delay-4">
+            <div class="bv-pillar-head">
+              <div class="bv-pillar-icon bg-white/15 border border-white/25">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/><path d="M12 2v3"/></svg>
               </div>
-              <span class="flex-shrink-0 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider
-                           bg-emerald-50 text-emerald-700 border border-emerald-100">
-                K-12 Education
+              <div class="flex-1 min-w-0">
+                <div class="bv-pillar-label text-white/70">Virtual Campus 24/7</div>
+                <h3 class="bv-pillar-title text-white">Schooli</h3>
+              </div>
+              <span class="bv-pillar-external text-white/70">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
               </span>
             </div>
-
-            <div class="flex-1">
-              <h3 class="text-lg font-bold text-slate-900">Schooli</h3>
-              <p class="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2">
-                Nền tảng học tập số &amp; LMS cho nhà trường, số hóa toàn diện quản lý và giảng dạy.
-              </p>
+            <p class="bv-pillar-desc text-white/85">
+              <strong>Phòng học ảo độ trễ thấp</strong> — kết nối học viên toàn cầu,
+              mở rộng lớp học vượt mọi giới hạn địa lý.
+            </p>
+            <div class="bv-pillar-tags">
+              <span class="bv-tag bg-white/15 text-white border-white/20">Phòng học ảo</span>
+              <span class="bv-tag bg-white/15 text-white border-white/20">Global 24/7</span>
             </div>
-
-            <div class="mt-6 pt-4 border-t border-slate-100">
-              <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
-                Khám phá nền tảng
-                <span class="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </span>
+            <div class="bv-pillar-cta text-white">
+              Khám phá giải pháp
+              <span class="bv-pillar-arrow bg-white/15 border-white/20 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </span>
             </div>
           </a>
 
         </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 6: SMART LEARNING ADVANTAGE (4 USP)         -->
+    <!-- ================================================== -->
+    <section id="loi-the" class="relative bg-slate-50 py-20 lg:py-28 overflow-hidden">
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none opacity-50"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Heading -->
+        <div class="max-w-3xl mb-12 lg:mb-16">
+          <span class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-electric/[0.06] border border-electric/15">
+            <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-electric uppercase">Lợi thế khác biệt</span>
+          </span>
+          <h2 class="reveal-up reveal-delay-1 mt-5 text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-navy leading-[1.15]">
+            Smart Learning
+            <span class="bg-gradient-to-r from-electric via-cyanAccent to-electric bg-clip-text text-transparent">Advantage</span>
+          </h2>
+          <p class="reveal-up reveal-delay-2 mt-4 text-navy/60 leading-relaxed max-w-2xl">
+            Bốn lợi thế cốt lõi — kết hợp tinh hoa giáo dục quốc tế và sức mạnh công nghệ số,
+            tạo nên trải nghiệm học tập vượt trội.
+          </p>
+        </div>
+
+        <!-- Grid 4 cột -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+
+          <!-- 01 -->
+          <div class="bv-advantage-card reveal-up reveal-delay-1">
+            <div class="bv-advantage-num">01</div>
+            <div class="bv-advantage-icon bg-gradient-to-br from-blue-500 to-electric">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <h3 class="bv-advantage-title">Chuẩn hóa Quốc tế</h3>
+            <p class="bv-advantage-desc">
+              Tích hợp giáo trình <strong>Cambridge</strong> &amp; khảo thí <strong>IIG</strong>
+              trên nền tảng đánh giá năng lực số.
+            </p>
+          </div>
+
+          <!-- 02 -->
+          <div class="bv-advantage-card reveal-up reveal-delay-2">
+            <div class="bv-advantage-num">02</div>
+            <div class="bv-advantage-icon bg-gradient-to-br from-cyanAccent to-blue-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <h3 class="bv-advantage-title">100% Đội ngũ chứng chỉ quốc tế</h3>
+            <p class="bv-advantage-desc">
+              Giáo viên được đào tạo <strong>kỹ năng sư phạm số</strong> và phương pháp
+              cá nhân hóa cho từng học viên.
+            </p>
+          </div>
+
+          <!-- 03 -->
+          <div class="bv-advantage-card reveal-up reveal-delay-3">
+            <div class="bv-advantage-num">03</div>
+            <div class="bv-advantage-icon bg-gradient-to-br from-violet-500 to-purple-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            </div>
+            <h3 class="bv-advantage-title">Data-Driven Learning</h3>
+            <p class="bv-advantage-desc">
+              Lộ trình học thiết kế riêng theo <strong>điểm mạnh và lỗ hổng</strong>
+              kiến thức của từng học viên.
+            </p>
+          </div>
+
+          <!-- 04 -->
+          <div class="bv-advantage-card reveal-up reveal-delay-4">
+            <div class="bv-advantage-num">04</div>
+            <div class="bv-advantage-icon bg-gradient-to-br from-amberBrand to-orange-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+            </div>
+            <h3 class="bv-advantage-title">Đa nền tảng linh hoạt</h3>
+            <p class="bv-advantage-desc">
+              Chuyển đổi giữa <strong>8 cơ sở TP.HCM</strong> và học trực tuyến qua
+              <strong>Schooli</strong> — mọi lúc, mọi nơi.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 7: STRATEGIC PARTNERS                       -->
+    <!-- ================================================== -->
+    <section class="relative bg-white py-16 lg:py-20 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-10">
+          <p class="reveal-up font-mono text-[11px] font-bold tracking-[0.15em] text-navy/40 uppercase">
+            Bảo chứng bởi các tổ chức khảo thí &amp; tập đoàn công nghệ hàng đầu
+          </p>
+        </div>
+
+        <!-- Carousel -->
+        <div class="reveal-up reveal-delay-1 bv-carousel">
+          <div class="bv-carousel-track">
+            <!-- Set 1 -->
+            <div class="bv-carousel-item">
+              <div class="bv-partner-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 8l6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z"/></svg>
+                <div>
+                  <div class="bv-partner-name">Cambridge</div>
+                  <div class="bv-partner-sub">English Assessment</div>
+                </div>
+              </div>
+            </div>
+            <div class="bv-carousel-item">
+              <div class="bv-partner-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/><path d="M14 14h6v6h-6z"/></svg>
+                <div>
+                  <div class="bv-partner-name">FPT</div>
+                  <div class="bv-partner-sub">Infrastructure Partner</div>
+                </div>
+              </div>
+            </div>
+            <div class="bv-carousel-item">
+              <div class="bv-partner-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6a3 3 0 0 1 6 0v5"/><path d="M5 11h14l-1.5 9a2 2 0 0 1-2 1.5H8.5a2 2 0 0 1-2-1.5L5 11z"/></svg>
+                <div>
+                  <div class="bv-partner-name">IIG Việt Nam</div>
+                  <div class="bv-partner-sub">Testing &amp; Certification</div>
+                </div>
+              </div>
+            </div>
+            <!-- Set 2 (duplicate để loop mượt) -->
+            <div class="bv-carousel-item" aria-hidden="true">
+              <div class="bv-partner-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 8l6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z"/></svg>
+                <div>
+                  <div class="bv-partner-name">Cambridge</div>
+                  <div class="bv-partner-sub">English Assessment</div>
+                </div>
+              </div>
+            </div>
+            <div class="bv-carousel-item" aria-hidden="true">
+              <div class="bv-partner-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/><path d="M14 14h6v6h-6z"/></svg>
+                <div>
+                  <div class="bv-partner-name">FPT</div>
+                  <div class="bv-partner-sub">Infrastructure Partner</div>
+                </div>
+              </div>
+            </div>
+            <div class="bv-carousel-item" aria-hidden="true">
+              <div class="bv-partner-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6a3 3 0 0 1 6 0v5"/><path d="M5 11h14l-1.5 9a2 2 0 0 1-2 1.5H8.5a2 2 0 0 1-2-1.5L5 11z"/></svg>
+                <div>
+                  <div class="bv-partner-name">IIG Việt Nam</div>
+                  <div class="bv-partner-sub">Testing &amp; Certification</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>
 
-    <!-- Filler dài để test sticky header -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-      <div class="h-[60vh] rounded-3xl bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center text-slate-400 text-sm">
-        ↓ Scroll để xem header sticky + glassmorphism ↓
+    <!-- ================================================== -->
+    <!-- SECTION 8: FAST-TRACK CONSULTATION (FORM)           -->
+    <!-- ================================================== -->
+    <section id="dang-ky-tu-van" class="relative bg-white pb-20 lg:pb-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal-up relative bv-consult-card overflow-hidden">
+
+          <!-- Glow decorations -->
+          <div class="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-electric/20 blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-cyanAccent/15 blur-3xl pointer-events-none"></div>
+          <div class="absolute inset-0 bv-tech-grid-dark pointer-events-none opacity-50"></div>
+
+          <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-8 sm:p-10 lg:p-14">
+
+            <!-- LEFT: info -->
+            <div class="lg:col-span-5">
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 border border-white/15 backdrop-blur-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyanAccent animate-pulse"></span>
+                <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-cyanAccent uppercase">Fast-Track Consultation</span>
+              </span>
+              <h2 class="mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-[1.15]">
+                Nhận phân tích
+                <span class="bg-gradient-to-r from-cyanAccent to-white bg-clip-text text-transparent">lộ trình AI</span>
+                trong 2 bước
+              </h2>
+              <p class="mt-4 text-white/65 leading-relaxed">
+                Chọn lĩnh vực bạn quan tâm — chuyên gia Bản Việt sẽ liên hệ trong 24h
+                với lộ trình cá nhân hóa dành riêng cho bạn.
+              </p>
+
+              <ul class="mt-7 space-y-3">
+                <li class="flex items-start gap-3 text-sm text-white/75">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-cyanAccent/20 border border-cyanAccent/30 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyanAccent"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span>Phân tích dựa trên dữ liệu học tập thực tế</span>
+                </li>
+                <li class="flex items-start gap-3 text-sm text-white/75">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-cyanAccent/20 border border-cyanAccent/30 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyanAccent"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span>Cam kết bảo mật dữ liệu theo chuẩn ISO 27001</span>
+                </li>
+                <li class="flex items-start gap-3 text-sm text-white/75">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-cyanAccent/20 border border-cyanAccent/30 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyanAccent"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span>Miễn phí 100% — không phát sinh chi phí</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- RIGHT: form -->
+            <div class="lg:col-span-7">
+              <div class="bg-white/[0.06] border border-white/15 backdrop-blur-md rounded-2xl p-6 sm:p-8">
+
+                <!-- Step indicator -->
+                <div class="flex items-center gap-3 mb-6">
+                  <div class="flex items-center gap-2">
+                    <span data-step-dot="1" class="bv-step-dot is-active">1</span>
+                    <span class="text-xs font-bold text-white/70">Chọn lĩnh vực</span>
+                  </div>
+                  <div class="flex-1 h-px bg-white/15"></div>
+                  <div class="flex items-center gap-2">
+                    <span data-step-dot="2" class="bv-step-dot">2</span>
+                    <span class="text-xs font-bold text-white/40">Thông tin liên hệ</span>
+                  </div>
+                </div>
+
+                <form data-consult-form novalidate>
+
+                  <!-- Step 1: chips -->
+                  <div data-step="1">
+                    <label class="block text-sm font-semibold text-white/80 mb-3">
+                      Bạn quan tâm đến lĩnh vực nào?
+                    </label>
+                    <div class="grid grid-cols-2 gap-2.5">
+                      <button type="button" data-chip="diem10" class="bv-chip">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/></svg>
+                        Điểm 10+
+                      </button>
+                      <button type="button" data-chip="danhlingo" class="bv-chip">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+                        DanhLingo
+                      </button>
+                      <button type="button" data-chip="schooli" class="bv-chip">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
+                        Schooli Online
+                      </button>
+                      <button type="button" data-chip="aitechco" class="bv-chip">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2"/><path d="M15 2v2"/><path d="M9 20v2"/><path d="M15 20v2"/><path d="M2 9h2"/><path d="M2 15h2"/><path d="M20 9h2"/><path d="M20 15h2"/></svg>
+                        Aitechco
+                      </button>
+                    </div>
+
+                    <button type="button" data-step-next
+                      class="mt-6 w-full h-12 rounded-xl font-bold text-sm text-navy bg-white
+                             hover:bg-cyanAccent transition-colors flex items-center justify-center gap-2
+                             disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+                      Tiếp tục
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                  </div>
+
+                  <!-- Step 2 -->
+                  <div data-step="2" class="hidden">
+                    <label class="block text-sm font-semibold text-white/80 mb-3">
+                      Thông tin để nhận phân tích lộ trình
+                    </label>
+                    <div class="space-y-3">
+                      <div>
+                        <input type="text" name="name" placeholder="Họ và tên" required
+                          class="bv-form-input" />
+                      </div>
+                      <div>
+                        <input type="tel" name="phone" placeholder="Số điện thoại" required
+                          class="bv-form-input" />
+                      </div>
+                    </div>
+
+                    <div class="mt-6 flex gap-2.5">
+                      <button type="button" data-step-prev
+                        class="flex-1 h-12 rounded-xl font-bold text-sm text-white/70 border border-white/20 hover:bg-white/[0.06] transition-colors flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                        Quay lại
+                      </button>
+                      <button type="submit"
+                        class="flex-[2] h-12 rounded-xl font-bold text-sm text-navy bg-white hover:bg-cyanAccent transition-colors flex items-center justify-center gap-2">
+                        Nhận phân tích lộ trình
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </button>
+                    </div>
+
+                    <p class="mt-4 text-[11px] text-white/40 leading-relaxed text-center">
+                      Bằng việc gửi thông tin, bạn đồng ý với
+                      <a href="#" class="underline hover:text-white/70">Chính sách bảo mật</a>
+                      của Bản Việt.
+                    </p>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
+
   </main>
 
-  <!-- ========== FOOTER (Web Component) ========== -->
+  <!-- ========== FOOTER (full 3 tầng) ========== -->
   <bv-footer></bv-footer>
 
-  <!-- ========== SCRIPTS ========== -->
   <script src="./js/components.js"></script>
   <script src="./js/header.js"></script>
   <script src="./js/main.js"></script>
