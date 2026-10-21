@@ -258,3 +258,45 @@ html {
       0 0 24px rgba(56, 189, 248, 0.7);
   }
 }
+
+
+
+
+/* =========================================================
+   ABOUT BADGES (floating + glassmorphism)
+   ========================================================= */
+.bv-about-badge {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9); /* slate-200 */
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 10px 30px -8px rgba(15, 23, 42, 0.15),
+    0 4px 12px -4px rgba(15, 23, 42, 0.08);
+  animation: bvFloat 4s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.bv-about-badge:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 40px -10px rgba(37, 99, 235, 0.25),
+    0 6px 16px -6px rgba(15, 23, 42, 0.1);
+  animation-play-state: paused;
+}
+
+/* Mobile: badge thu nhỏ, reposition nhẹ */
+@media (max-width: 640px) {
+  .bv-about-badge {
+    padding: 0.55rem 0.75rem;
+    border-radius: 0.75rem;
+  }
+  .bv-about-badge .w-11.h-11 {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+  }
+  .bv-about-badge .text-lg {
+    font-size: 0.95rem;
+  }
+}
