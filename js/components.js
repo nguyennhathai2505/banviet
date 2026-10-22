@@ -40,9 +40,9 @@ const ICONS = {
 const NAV_ITEMS = [
   { label: 'Trang chủ', href: 'index.html' },
   { label: 'Hệ sinh thái', href: 'pages/ecosystem.html', dropdown: true },
-  { label: 'Khóa học', href: '#khoa-hoc' },
+  { label: 'Khóa học', href: 'pages/courses.html' },
   { label: 'Về chúng tôi', href: 'pages/about.html' },
-  { label: 'Tin tức', href: '#tin-tuc' },
+  { label: 'Tin tức', href: 'pages/news.html' },
 ];
 
 const ECOSYSTEM = [
