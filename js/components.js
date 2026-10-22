@@ -2,6 +2,17 @@
    BẢN VIỆT — Web Components (Header mới + Footer placeholder)
    ========================================================= */
 
+const SITE_ROOT_URL = new URL('../', document.currentScript.src);
+
+function siteUrl(path) {
+  return new URL(path, SITE_ROOT_URL).href;
+}
+
+function siteHref(href) {
+  if (!href.startsWith('#')) return siteUrl(href);
+  return document.getElementById(href.slice(1)) ? href : `${siteUrl('index.html')}${href}`;
+}
+
 /* ---------- SVG Icons (inline, viết tay) ---------- */
 const ICONS = {
   search: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>`,
@@ -27,7 +38,7 @@ const ICONS = {
 
 /* ---------- NAV & ECOSYSTEM DATA ---------- */
 const NAV_ITEMS = [
-  { label: 'Trang chủ', href: '../index.html' },
+  { label: 'Trang chủ', href: 'index.html' },
   { label: 'Hệ sinh thái', href: 'pages/ecosystem.html', dropdown: true },
   { label: 'Khóa học', href: '#khoa-hoc' },
   { label: 'Về chúng tôi', href: 'pages/about.html' },
@@ -44,7 +55,7 @@ const ECOSYSTEM = [
 function renderMegaCards() {
   return ECOSYSTEM.map(
     (u) => `
-    <a href="${u.href}" class="bv-mega-card">
+    <a href="${siteHref(u.href)}" class="bv-mega-card">
       <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-electric/10 to-cyanAccent/10 border border-electric/15 flex items-center justify-center text-electric">
         ${ICONS[u.iconKey]}
       </div>
@@ -67,8 +78,8 @@ class BvHeader extends HTMLElement {
           <div class="flex items-center justify-between h-[72px] gap-3">
 
             <!-- BRAND -->
-            <a href="../index.html" class="flex items-center gap-2.5 flex-shrink-0 group">
-              <img src="../assets/images/logo-banviet.png" alt="Bản Việt" class="h-12 w-auto"
+            <a href="${siteUrl('index.html')}" class="flex items-center gap-2.5 flex-shrink-0 group">
+              <img src="${siteUrl('assets/images/logo-banviet.png')}" alt="Bản Việt" class="h-12 w-auto"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
               <div class="hidden flex-col leading-none" style="display:none;">
                 <span class="font-extrabold text-base text-navy tracking-tight">BẢN VIỆT</span>
@@ -98,7 +109,7 @@ class BvHeader extends HTMLElement {
                             ${renderMegaCards()}
                           </div>
                           <div class="mt-2 pt-2 border-t border-navy/[0.06] px-2 pb-1">
-                            <a href="../pages/ecosystem.html" class="text-xs font-bold text-electric hover:text-electric-600 inline-flex items-center gap-1">
+                            <a href="${siteUrl('pages/ecosystem.html')}" class="text-xs font-bold text-electric hover:text-electric-600 inline-flex items-center gap-1">
                               Xem tất cả hệ sinh thái ${ICONS.arrowRight}
                             </a>
                           </div>
@@ -107,7 +118,7 @@ class BvHeader extends HTMLElement {
                     </div>
                   `;
                 }
-                return `<a href="${item.href}" class="bv-nav-link">${item.label}</a>`;
+                return `<a href="${siteHref(item.href)}" class="bv-nav-link">${item.label}</a>`;
               }).join('')}
             </nav>
 
@@ -117,12 +128,12 @@ class BvHeader extends HTMLElement {
                 class="w-9 h-9 rounded-lg flex items-center justify-center text-navy/60 hover:bg-navy/[0.04] hover:text-electric transition-colors">
                 ${ICONS.search}
               </button>
-              <a href="#tra-cuu" class="hidden xl:inline-flex items-center px-4 h-9 rounded-lg
+              <a href="${siteHref('#tra-cuu')}" class="hidden xl:inline-flex items-center px-4 h-9 rounded-lg
                   text-sm font-semibold text-navy border border-navy/15
                   hover:border-electric hover:text-electric transition-colors">
                 Tra cứu lộ trình học
               </a>
-              <a href="#dang-ky-tu-van" class="inline-flex items-center px-4 h-9 rounded-lg
+              <a href="${siteHref('#dang-ky-tu-van')}" class="inline-flex items-center px-4 h-9 rounded-lg
                   text-sm font-semibold text-white
                   bg-gradient-to-r from-navy via-navy-800 to-electric
                   hover:shadow-glow-blue hover:-translate-y-0.5 transition-all">
@@ -170,7 +181,7 @@ class BvHeader extends HTMLElement {
                     <div class="pl-2 pr-2 pt-1 pb-2 space-y-1">
                       ${ECOSYSTEM.map(
                         (u) => `
-                        <a href="${u.href}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors">
+                        <a href="${siteHref(u.href)}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors">
                           <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-electric/10 to-cyanAccent/10 border border-electric/15 flex items-center justify-center text-electric flex-shrink-0">${ICONS[u.iconKey]}</span>
                           <div class="min-w-0">
                             <div class="font-bold text-navy text-sm">${u.name}</div>
@@ -183,14 +194,14 @@ class BvHeader extends HTMLElement {
                 </div>
               `;
             }
-            return `<a href="${item.href}" class="block px-3 py-3 rounded-lg text-navy font-semibold hover:bg-slate-50 transition-colors">${item.label}</a>`;
+            return `<a href="${siteHref(item.href)}" class="block px-3 py-3 rounded-lg text-navy font-semibold hover:bg-slate-50 transition-colors">${item.label}</a>`;
           }).join('')}
         </nav>
         <div class="px-5 pt-2 pb-6 mt-auto border-t border-slate-100 space-y-2">
-          <a href="#tra-cuu" class="flex items-center justify-center h-11 rounded-xl font-semibold text-sm text-navy border border-navy/15 hover:bg-slate-50">
+          <a href="${siteHref('#tra-cuu')}" class="flex items-center justify-center h-11 rounded-xl font-semibold text-sm text-navy border border-navy/15 hover:bg-slate-50">
             Tra cứu lộ trình học
           </a>
-          <a href="#dang-ky-tu-van" class="flex items-center justify-center h-11 rounded-xl text-white text-sm font-semibold bg-gradient-to-r from-navy via-navy-800 to-electric">
+          <a href="${siteHref('#dang-ky-tu-van')}" class="flex items-center justify-center h-11 rounded-xl text-white text-sm font-semibold bg-gradient-to-r from-navy via-navy-800 to-electric">
             Đăng ký tư vấn
           </a>
         </div>
@@ -274,8 +285,8 @@ class BvFooter extends HTMLElement {
 
               <!-- Brand -->
               <div class="lg:col-span-1">
-                <a href="./index.html" class="inline-flex items-center gap-2.5 mb-4">
-                  <img src="./assets/images/logo-banviet.png" alt="Bản Việt" class="h-10 w-auto brightness-0 invert"
+                <a href="${siteUrl('index.html')}" class="inline-flex items-center gap-2.5 mb-4">
+                  <img src="${siteUrl('assets/images/logo-banviet.png')}" alt="Bản Việt" class="h-10 w-auto brightness-0 invert"
                        onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
                   <span class="hidden font-extrabold text-lg text-white" style="display:none;">BẢN VIỆT</span>
                 </a>
@@ -294,10 +305,10 @@ class BvFooter extends HTMLElement {
               <div>
                 <h4 class="font-bold text-white text-sm mb-4">Về Bản Việt</h4>
                 <ul class="space-y-2.5 text-sm">
-                  <li><a href="#ve-chung-toi" class="text-white/55 hover:text-cyanAccent transition-colors">Giới thiệu</a></li>
-                  <li><a href="#loi-the" class="text-white/55 hover:text-cyanAccent transition-colors">Tầm nhìn &amp; Sứ mệnh</a></li>
-                  <li><a href="#stats" class="text-white/55 hover:text-cyanAccent transition-colors">Cột mốc phát triển</a></li>
-                  <li><a href="#tin-tuc" class="text-white/55 hover:text-cyanAccent transition-colors">Tin tức &amp; Sự kiện</a></li>
+                  <li><a href="${siteHref('#ve-chung-toi')}" class="text-white/55 hover:text-cyanAccent transition-colors">Giới thiệu</a></li>
+                  <li><a href="${siteHref('#loi-the')}" class="text-white/55 hover:text-cyanAccent transition-colors">Tầm nhìn &amp; Sứ mệnh</a></li>
+                  <li><a href="${siteHref('#stats')}" class="text-white/55 hover:text-cyanAccent transition-colors">Cột mốc phát triển</a></li>
+                  <li><a href="${siteHref('#tin-tuc')}" class="text-white/55 hover:text-cyanAccent transition-colors">Tin tức &amp; Sự kiện</a></li>
                 </ul>
               </div>
 
@@ -305,10 +316,10 @@ class BvFooter extends HTMLElement {
               <div>
                 <h4 class="font-bold text-white text-sm mb-4">Khóa học K12</h4>
                 <ul class="space-y-2.5 text-sm">
-                  <li><a href="#diem10" class="text-white/55 hover:text-cyanAccent transition-colors">Luyện thi THPT</a></li>
-                  <li><a href="#diem10" class="text-white/55 hover:text-cyanAccent transition-colors">Toán — Lý — Hóa</a></li>
-                  <li><a href="#diem10" class="text-white/55 hover:text-cyanAccent transition-colors">Văn — Anh</a></li>
-                  <li><a href="#diem10" class="text-white/55 hover:text-cyanAccent transition-colors">Cambridge K12</a></li>
+                  <li><a href="${siteHref('#diem10')}" class="text-white/55 hover:text-cyanAccent transition-colors">Luyện thi THPT</a></li>
+                  <li><a href="${siteHref('#diem10')}" class="text-white/55 hover:text-cyanAccent transition-colors">Toán — Lý — Hóa</a></li>
+                  <li><a href="${siteHref('#diem10')}" class="text-white/55 hover:text-cyanAccent transition-colors">Văn — Anh</a></li>
+                  <li><a href="${siteHref('#diem10')}" class="text-white/55 hover:text-cyanAccent transition-colors">Cambridge K12</a></li>
                 </ul>
               </div>
 
@@ -316,10 +327,10 @@ class BvFooter extends HTMLElement {
               <div>
                 <h4 class="font-bold text-white text-sm mb-4">Ngoại ngữ</h4>
                 <ul class="space-y-2.5 text-sm">
-                  <li><a href="#danhlingo" class="text-white/55 hover:text-cyanAccent transition-colors">Tiếng Anh giao tiếp</a></li>
-                  <li><a href="#danhlingo" class="text-white/55 hover:text-cyanAccent transition-colors">IELTS / TOEIC</a></li>
-                  <li><a href="#danhlingo" class="text-white/55 hover:text-cyanAccent transition-colors">Tiếng Nhật — Hàn</a></li>
-                  <li><a href="#danhlingo" class="text-white/55 hover:text-cyanAccent transition-colors">Luyện phản xạ AI</a></li>
+                  <li><a href="${siteHref('#danhlingo')}" class="text-white/55 hover:text-cyanAccent transition-colors">Tiếng Anh giao tiếp</a></li>
+                  <li><a href="${siteHref('#danhlingo')}" class="text-white/55 hover:text-cyanAccent transition-colors">IELTS / TOEIC</a></li>
+                  <li><a href="${siteHref('#danhlingo')}" class="text-white/55 hover:text-cyanAccent transition-colors">Tiếng Nhật — Hàn</a></li>
+                  <li><a href="${siteHref('#danhlingo')}" class="text-white/55 hover:text-cyanAccent transition-colors">Luyện phản xạ AI</a></li>
                 </ul>
               </div>
 
@@ -327,10 +338,10 @@ class BvFooter extends HTMLElement {
               <div>
                 <h4 class="font-bold text-white text-sm mb-4">Nền tảng số</h4>
                 <ul class="space-y-2.5 text-sm">
-                  <li><a href="#schooli" class="text-white/55 hover:text-cyanAccent transition-colors">Schooli Online</a></li>
-                  <li><a href="#aitechco" class="text-white/55 hover:text-cyanAccent transition-colors">LMS cho nhà trường</a></li>
-                  <li><a href="#aitechco" class="text-white/55 hover:text-cyanAccent transition-colors">Giải pháp AI</a></li>
-                  <li><a href="#dang-ky-tu-van" class="text-white/55 hover:text-cyanAccent transition-colors">Đăng ký tư vấn</a></li>
+                  <li><a href="${siteHref('#schooli')}" class="text-white/55 hover:text-cyanAccent transition-colors">Schooli Online</a></li>
+                  <li><a href="${siteHref('#aitechco')}" class="text-white/55 hover:text-cyanAccent transition-colors">LMS cho nhà trường</a></li>
+                  <li><a href="${siteHref('#aitechco')}" class="text-white/55 hover:text-cyanAccent transition-colors">Giải pháp AI</a></li>
+                  <li><a href="${siteHref('#dang-ky-tu-van')}" class="text-white/55 hover:text-cyanAccent transition-colors">Đăng ký tư vấn</a></li>
                 </ul>
               </div>
 
