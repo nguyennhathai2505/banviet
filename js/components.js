@@ -105,7 +105,7 @@ class BvHeader extends HTMLElement {
                       </button>
                       <div class="bv-dropdown" data-dropdown-menu>
                         <div class="bg-white rounded-2xl border border-navy/[0.08] shadow-[0_20px_50px_-12px_rgba(15,35,58,0.18)] p-2.5">
-                          <div class="grid grid-cols-2 gap-1">
+                          <div class="grid grid-cols-1 gap-1">
                             ${renderMegaCards()}
                           </div>
                           <div class="mt-2 pt-2 border-t border-navy/[0.06] px-2 pb-1">

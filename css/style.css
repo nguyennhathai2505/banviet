@@ -67,7 +67,7 @@ html {
   top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%) translateY(-6px);
-  width: 560px;
+  width: 320px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
