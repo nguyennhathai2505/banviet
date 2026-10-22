@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schooli — Trường học trực tuyến không khoảng cách</title>
+  <meta name="description" content="Schooli — Nền tảng lớp học ảo 24/7, WebRTC Realtime Low-Latency. Kết nối học viên toàn cầu với phòng học thông minh & tương tác 2 chiều." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            navy: { DEFAULT: '#0A192F', 900: '#0F233A', 800: '#152B44', 700: '#1B3550' },
+            azure: { DEFAULT: '#0284C7', 500: '#0066FF', 600: '#0369A1', light: '#F0F7FF' },
+            cyanAccent: '#00D2D3',
+          },
+          boxShadow: {
+            'glow-azure': '0 0 40px -8px rgba(2, 132, 199, 0.4)',
+            'glow-cyan': '0 0 30px -6px rgba(0, 210, 211, 0.4)',
+            'card': '0 4px 20px -8px rgba(15, 35, 58, 0.08)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="font-sans bg-white text-navy antialiased overflow-x-hidden">
+
+  <bv-header></bv-header>
+
+  <main>
+
+    <!-- ================================================== -->
+    <!-- SECTION 1: BRAND HERO                               -->
+    <!-- ================================================== -->
+    <section class="relative overflow-hidden" style="background: linear-gradient(180deg, #F0F7FF 0%, #FFFFFF 100%);">
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none"></div>
+      <div class="absolute -top-40 -left-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-azure/15 via-cyanAccent/8 to-transparent blur-3xl pointer-events-none"></div>
+      <div class="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-cyanAccent/15 via-azure/8 to-transparent blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 lg:pt-12 pb-16 lg:pb-20">
+
+        <div class="reveal-up flex items-center justify-between gap-4 flex-wrap">
+          <nav class="flex items-center gap-2 text-xs text-navy/40 font-medium flex-wrap">
+            <a href="../index.html" class="hover:text-azure transition-colors">Trang chủ</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-navy/25"><path d="m9 18 6-6-6-6"/></svg>
+            <a href="./ecosystem.html" class="hover:text-azure transition-colors">Hệ sinh thái</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-navy/25"><path d="m9 18 6-6-6-6"/></svg>
+            <span class="text-azure font-semibold">Schooli</span>
+          </nav>
+
+          <a href="./ecosystem.html"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-navy/70 border border-navy/15 hover:border-azure hover:text-azure transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+            Quay lại Hệ sinh thái
+          </a>
+        </div>
+
+        <div class="mt-10 lg:mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+          <!-- LEFT -->
+          <div>
+            <div class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-azure/[0.08] border border-azure/25">
+              <span class="w-1.5 h-1.5 rounded-full bg-azure animate-pulse shadow-glow-azure"></span>
+              <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-azure uppercase">
+                Nền tảng lớp học ảo 24/7 · WebRTC Realtime Low-Latency
+              </span>
+            </div>
+
+            <h1 class="reveal-up reveal-delay-1 mt-6 text-4xl sm:text-5xl lg:text-[3.2rem] font-extrabold tracking-tight leading-[1.05] text-navy">
+              Schooli —
+              <span class="bg-gradient-to-r from-azure via-azure-500 to-cyanAccent bg-clip-text text-transparent">
+                Trường học trực tuyến không khoảng cách
+              </span>
+            </h1>
+
+            <p class="reveal-up reveal-delay-2 mt-4 text-lg font-semibold text-navy/75 leading-snug">
+              Kết nối học viên toàn cầu với Phòng học thông minh &amp; Tương tác 2 chiều.
+            </p>
+
+            <p class="reveal-up reveal-delay-3 mt-4 text-base text-navy/60 leading-relaxed max-w-xl">
+              Nền tảng học trực tuyến thế hệ mới thuộc Hệ sinh thái Bản Việt. Cho phép học sinh,
+              sinh viên và người đi làm tham gia lớp học chất lượng cao <strong class="text-navy">mọi lúc, mọi nơi</strong>
+              với hạ tầng lưu trữ bài giảng tự động.
+            </p>
+
+            <div class="reveal-up reveal-delay-4 mt-7 flex flex-wrap items-center gap-3">
+              <a href="#trai-nghiem-schooli"
+                class="group inline-flex items-center gap-2 px-6 h-12 rounded-xl
+                       text-white text-sm font-bold
+                       bg-gradient-to-r from-azure via-azure-500 to-cyanAccent
+                       shadow-glow-azure hover:shadow-[0_0_50px_-8px_rgba(2,132,199,0.7)]
+                       hover:-translate-y-0.5 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Vào phòng học thử Demo
+              </a>
+              <a href="https://schooli.edu.vn/" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 h-12 rounded-xl
+                       text-sm font-bold text-navy/80
+                       border border-navy/15 hover:border-azure hover:text-azure
+                       transition-all">
+                Truy cập website
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT: Live Classroom Mockup -->
+          <div class="reveal-up reveal-delay-3 relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-azure/20 via-cyanAccent/10 to-transparent blur-3xl rounded-full scale-90 pointer-events-none"></div>
+
+            <div class="relative bv-schooli-live">
+              <!-- Top bar -->
+              <div class="flex items-center justify-between pb-3 mb-3 border-b border-navy/[0.06]">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-azure to-cyanAccent flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-[10px] font-mono font-bold tracking-wider text-azure uppercase">Live Classroom</div>
+                    <div class="text-xs font-extrabold text-navy">Toán 9 — Thầy Minh</div>
+                  </div>
+                </div>
+                <!-- Live badge (SVG pulse dot) -->
+                <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-red-500/10 border border-red-500/25">
+                  <span class="relative flex w-2 h-2">
+                    <span class="absolute inset-0 rounded-full bg-red-500 animate-ping opacity-75"></span>
+                    <span class="relative w-2 h-2 rounded-full bg-red-500"></span>
+                  </span>
+                  <span class="font-mono text-[9px] font-extrabold tracking-wider text-red-600 uppercase">Live</span>
+                </span>
+              </div>
+
+              <!-- Video area + whiteboard -->
+              <div class="grid grid-cols-5 gap-2 mb-3">
+                <!-- Teacher video -->
+                <div class="col-span-3 bv-schooli-video">
+                  <div class="bv-schooli-avatar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+                  </div>
+                  <span class="bv-schooli-video-label">Teacher · HD</span>
+                </div>
+
+                <!-- Whiteboard mini -->
+                <div class="col-span-2 bv-schooli-whiteboard">
+                  <div class="text-[8px] font-mono font-bold text-navy/40 uppercase mb-1">Whiteboard</div>
+                  <svg viewBox="0 0 100 80" class="w-full">
+                    <!-- Axis -->
+                    <line x1="15" y1="60" x2="85" y2="60" stroke="#0A192F" stroke-width="1.2" opacity="0.4"/>
+                    <line x1="15" y1="10" x2="15" y2="60" stroke="#0A192F" stroke-width="1.2" opacity="0.4"/>
+                    <!-- Parabola -->
+                    <path d="M 20 55 Q 50 10 80 55" stroke="#0284C7" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <text x="20" y="72" font-family="Be Vietnam Pro" font-size="7" font-weight="700" fill="#0284C7">y = ax²</text>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Student strip -->
+              <div class="flex items-center justify-between mb-3 pb-3 border-b border-navy/[0.06]">
+                <div class="flex items-center gap-1">
+                  ${'' /* 4 avatar */}
+                </div>
+              </div>
+
+              <!-- Toolbar -->
+              <div class="flex items-center justify-center gap-2">
+                <button type="button" class="bv-schooli-tool" title="Giơ tay">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+                </button>
+                <button type="button" class="bv-schooli-tool" title="Thẻ phản hồi">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01"/><path d="M10 9h.01"/><path d="M14 9h.01"/><path d="M18 9h.01"/></svg>
+                </button>
+                <button type="button" class="bv-schooli-tool" title="Chia sẻ màn hình">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/><path d="m9 8 3-3 3 3"/><path d="M12 5v7"/></svg>
+                </button>
+              </div>
+
+              <!-- Footer badges -->
+              <div class="mt-3 flex flex-wrap gap-1.5 justify-center">
+                <span class="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-navy/[0.04] border border-navy/[0.06] text-[9px] font-bold text-navy/60 uppercase tracking-wider">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-azure"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+                  WebRTC HD
+                </span>
+                <span class="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-navy/[0.04] border border-navy/[0.06] text-[9px] font-bold text-navy/60 uppercase tracking-wider">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-azure"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+                  Auto-Recording
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 2: CORE VIRTUAL FEATURES                    -->
+    <!-- ================================================== -->
+    <section class="relative bg-white py-16 lg:py-24 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-azure/[0.08] border border-azure/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-azure animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-azure uppercase">4 Tính năng đột phá</span>
+          </span>
+          <h2 class="reveal-up reveal-delay-1 mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy leading-[1.15]">
+            Core Virtual
+            <span class="bg-gradient-to-r from-azure to-cyanAccent bg-clip-text text-transparent">Features</span>
+          </h2>
+          <p class="reveal-up reveal-delay-2 mt-4 text-navy/60 leading-relaxed">
+            Bốn tính năng cốt lõi giúp học online tại Schooli hiệu quả tương đương học trực tiếp.
+          </p>
+        </div>
+
+        <div id="schooli-features-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6"></div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 3: ONLINE LEARNING HUBS                     -->
+    <!-- ================================================== -->
+    <section class="relative py-16 lg:py-24 overflow-hidden" style="background: linear-gradient(180deg, #F0F7FF 0%, #F8FAFC 100%);">
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none opacity-30"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-azure/[0.08] border border-azure/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-azure animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-azure uppercase">3 Phân khúc đào tạo số</span>
+          </span>
+          <h2 class="reveal-up reveal-delay-1 mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy leading-[1.15]">
+            Online Learning
+            <span class="bg-gradient-to-r from-azure to-cyanAccent bg-clip-text text-transparent">Hubs</span>
+          </h2>
+          <p class="reveal-up reveal-delay-2 mt-4 text-navy/60 leading-relaxed">
+            Các chương trình đào tạo trực tuyến chính đang vận hành trên Schooli.
+          </p>
+        </div>
+
+        <div id="schooli-hubs-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6"></div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 4: LIVE DEMO EXPERIENCE FORM                -->
+    <!-- ================================================== -->
+    <section id="trai-nghiem-schooli" class="relative bg-white pb-20 lg:pb-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal-up relative bv-schooli-consult overflow-hidden">
+
+          <div class="absolute -top-40 -right-32 w-[500px] h-[500px] rounded-full bg-cyanAccent/20 blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-azure/20 blur-3xl pointer-events-none"></div>
+
+          <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-8 sm:p-10 lg:p-14">
+
+            <!-- Info -->
+            <div class="lg:col-span-5">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/15 border border-white/25 backdrop-blur-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-white uppercase">Live Demo Experience</span>
+              </div>
+
+              <h2 class="mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-[1.15]">
+                Trải nghiệm Miễn phí
+                <span class="text-white/75">Phòng học Ảo Thông minh Schooli</span>
+              </h2>
+
+              <p class="mt-4 text-white/75 leading-relaxed">
+                Kiểm tra tốc độ đường truyền, tương tác trực tiếp với giáo viên và nhận
+                <strong class="text-white">tài khoản học thử 7 ngày</strong>.
+              </p>
+
+              <ul class="mt-6 space-y-2.5">
+                <li class="flex items-start gap-2.5 text-sm text-white/85">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span>Test đường truyền WebRTC realtime</span>
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-white/85">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span>Trải nghiệm bảng trắng tương tác</span>
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-white/85">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span>Tài khoản học thử 7 ngày miễn phí</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Form -->
+            <div class="lg:col-span-7">
+              <form id="schooli-consult-form" class="bg-white/[0.12] border border-white/25 backdrop-blur-md rounded-2xl p-6 sm:p-8 space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-xs font-semibold text-white/80 mb-1.5">Họ và tên</label>
+                    <input type="text" name="name" required placeholder="Nguyễn Văn A" class="bv-schooli-input" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-white/80 mb-1.5">SĐT / Email</label>
+                    <input type="text" name="contact" required placeholder="0933 39 8787" class="bv-schooli-input" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-white/80 mb-2">Đối tượng học viên</label>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button type="button" data-schooli-target="k12" class="bv-schooli-chip">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg>
+                      Học sinh K12
+                    </button>
+                    <button type="button" data-schooli-target="adult" class="bv-schooli-chip">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                      Ngoại ngữ người lớn
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-white/80 mb-2">Thiết bị sử dụng</label>
+                  <div class="grid grid-cols-3 gap-2">
+                    <button type="button" data-schooli-device="desktop" class="bv-schooli-chip">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                      Máy tính
+                    </button>
+                    <button type="button" data-schooli-device="tablet" class="bv-schooli-chip">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg>
+                      iPad
+                    </button>
+                    <button type="button" data-schooli-device="mobile" class="bv-schooli-chip">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg>
+                      Điện thoại
+                    </button>
+                  </div>
+                </div>
+
+                <button type="submit"
+                  class="w-full h-12 rounded-xl text-sm font-bold text-azure bg-white
+                         hover:bg-cyanAccent hover:text-navy
+                         shadow-[0_0_30px_-8px_rgba(255,255,255,0.5)]
+                         transition-all flex items-center justify-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  Nhận tài khoản học thử
+                </button>
+                <p class="text-[11px] text-white/60 text-center leading-relaxed">
+                  Bằng việc gửi, bạn đồng ý với chính sách bảo mật của Schooli.
+                </p>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <bv-footer></bv-footer>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/schooli-data.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

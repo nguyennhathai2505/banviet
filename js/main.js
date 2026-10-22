@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initDanhLingoPage();
 
   initAitechcoPage();
+
+  initSchooliPage();
 });
 
 /* ---------- Scroll reveal ---------- */
@@ -1488,5 +1490,138 @@ function initAitechcoPage() {
     form.reset();
     document.querySelectorAll('[data-aitech-chip]').forEach((c) => c.classList.remove('is-selected'));
     selectedSolutions.clear();
+  });
+}
+
+
+
+
+/* =========================================================
+   SCHOOLI PAGE
+   ========================================================= */
+function initSchooliPage() {
+  const featuresGrid = document.getElementById('schooli-features-grid');
+  const hubsGrid = document.getElementById('schooli-hubs-grid');
+  if (!featuresGrid || typeof SCHOOLI_FEATURES === 'undefined') return;
+
+  // Icons
+  const ICONS = {
+    signal: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>`,
+    pen: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>`,
+    video: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
+    chartCheck: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><path d="m17 3 2 2 4-4"/></svg>`,
+    gradCap: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/></svg>`,
+    chatLang: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>`,
+    award: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+  };
+
+  // ===== Features =====
+  featuresGrid.innerHTML = SCHOOLI_FEATURES.map((f) => `
+    <article class="bv-schooli-feature reveal-up">
+      <div class="bv-schooli-feature-num">${f.num}</div>
+      <div class="bv-schooli-feature-head">
+        <div class="bv-schooli-feature-icon">${ICONS[f.icon] || ICONS.signal}</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="bv-schooli-feature-title">${f.title}</h3>
+          <div class="bv-schooli-feature-sub">${f.subtitle}</div>
+        </div>
+      </div>
+      <ul class="bv-schooli-feature-list">
+        ${f.features.map((item) => `
+          <li class="bv-schooli-feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span>${item}</span>
+          </li>
+        `).join('')}
+      </ul>
+    </article>
+  `).join('');
+
+  // ===== Hubs =====
+  if (hubsGrid && typeof SCHOOLI_HUBS !== 'undefined') {
+    hubsGrid.innerHTML = SCHOOLI_HUBS.map((h) => `
+      <article class="bv-schooli-hub reveal-up">
+        <div class="bv-schooli-hub-head">
+          <div class="bv-schooli-hub-icon">${ICONS[h.icon] || ICONS.award}</div>
+          <div class="flex-1 min-w-0">
+            <h3 class="bv-schooli-hub-title">${h.title}</h3>
+            <span class="bv-schooli-hub-partner" style="color:${h.partnerColor}; border-color:${h.partnerColor}40; background:${h.partnerColor}12;">${h.partner}</span>
+          </div>
+        </div>
+        <p class="bv-schooli-hub-desc">${h.desc}</p>
+        <div class="bv-schooli-hub-meta">
+          ${h.meta.map((m) => `<span class="bv-schooli-hub-meta-tag">${m}</span>`).join('')}
+        </div>
+        <button type="button" class="bv-schooli-hub-cta" data-schooli-enroll="${h.id}">
+          ${h.cta}
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </article>
+    `).join('');
+
+    // Hub CTA → scroll form
+    hubsGrid.querySelectorAll('[data-schooli-enroll]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.getElementById('trai-nghiem-schooli')?.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => document.querySelector('#schooli-consult-form [name="name"]')?.focus(), 700);
+      });
+    });
+  }
+
+  // Re-run reveal observer
+  const newReveals = document.querySelectorAll('.reveal-up:not(.is-visible)');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+    newReveals.forEach((el) => observer.observe(el));
+  } else {
+    newReveals.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  // ===== Form chips =====
+  let selectedTarget = null;
+  let selectedDevice = null;
+
+  document.querySelectorAll('[data-schooli-target]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('[data-schooli-target]').forEach((c) => c.classList.remove('is-selected'));
+      chip.classList.add('is-selected');
+      selectedTarget = chip.dataset.schooliTarget;
+    });
+  });
+  document.querySelectorAll('[data-schooli-device]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('[data-schooli-device]').forEach((c) => c.classList.remove('is-selected'));
+      chip.classList.add('is-selected');
+      selectedDevice = chip.dataset.schooliDevice;
+    });
+  });
+
+  // ===== Form submit =====
+  const form = document.getElementById('schooli-consult-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.querySelector('[name="name"]').value.trim();
+    const contact = form.querySelector('[name="contact"]').value.trim();
+
+    if (!name) { alert('Vui lòng nhập họ tên'); return; }
+    if (!contact) { alert('Vui lòng nhập SĐT hoặc email'); return; }
+    if (!selectedTarget) { alert('Vui lòng chọn đối tượng học viên'); return; }
+    if (!selectedDevice) { alert('Vui lòng chọn thiết bị sử dụng'); return; }
+
+    showToast(`Cảm ơn ${name}! Schooli đã gửi tài khoản học thử vào ${contact}.`);
+    form.reset();
+    document.querySelectorAll('[data-schooli-target], [data-schooli-device]').forEach((c) => c.classList.remove('is-selected'));
+    selectedTarget = null;
+    selectedDevice = null;
   });
 }

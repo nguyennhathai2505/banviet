@@ -49,7 +49,7 @@ const ECOSYSTEM = [
   { iconKey: 'gradCap', name: 'Điểm 10+', desc: 'Smart Culture & K12', href: 'pages/diem10.html ' },
   { iconKey: 'chatLang', name: 'DanhLingo', desc: 'Rapid Language Engine', href: 'pages/danhlingo.html' },
   { iconKey: 'codeChip', name: 'Aitechco', desc: 'EdTech Core & Infrastructure', href: 'pages/aitechco.html' },
-  { iconKey: 'school', name: 'Schooli', desc: 'Virtual Campus 24/7', href: '#schooli' },
+  { iconKey: 'school', name: 'Schooli', desc: 'Virtual Campus 24/7', href: 'pages/schooli.html' },
 ];
 
 function renderMegaCards() {
