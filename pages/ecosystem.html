@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hệ sinh thái Bản Việt — Nơi công nghệ hội tụ cùng tri thức</title>
+  <meta name="description" content="4 trụ cột Bản Việt: Điểm 10+ (K12), DanhLingo (Ngoại ngữ), Aitechco (B2B Tech), Schooli (Virtual Campus) — hợp lực thành hệ sinh thái EdTech toàn diện." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            navy: { DEFAULT: '#0A192F', 900: '#0F233A', 800: '#152B44', 700: '#1B3550' },
+            electric: { DEFAULT: '#0066FF', 600: '#0052CC', 500: '#1A7AFF' },
+            cyanAccent: '#00D2D3',
+            amberBrand: '#F59E0B',
+          },
+          boxShadow: {
+            'glow-blue': '0 0 40px -8px rgba(0, 102, 255, 0.35)',
+            'glow-cyan': '0 0 30px -6px rgba(0, 210, 211, 0.45)',
+            'card': '0 4px 20px -8px rgba(15, 35, 58, 0.08)',
+            'card-hover': '0 20px 40px -12px rgba(15, 35, 58, 0.15)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="font-sans bg-white text-navy antialiased overflow-x-hidden">
+
+  <!-- ========== HEADER ========== -->
+  <bv-header></bv-header>
+
+  <main>
+
+    <!-- ================================================== -->
+    <!-- SECTION 1: HERO + BREADCRUMB                        -->
+    <!-- ================================================== -->
+    <section class="relative overflow-hidden bg-white">
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none"></div>
+      <div class="absolute -top-40 -left-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-electric/10 via-cyanAccent/5 to-transparent blur-3xl pointer-events-none"></div>
+      <div class="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-cyanAccent/10 via-electric/5 to-transparent blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 lg:pt-14 lg:pb-20">
+
+        <!-- Breadcrumb -->
+        <nav class="reveal-up flex items-center gap-2 text-xs text-navy/40 font-medium" aria-label="Breadcrumb">
+          <a href="../index.html" class="hover:text-electric transition-colors">Trang chủ</a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-navy/25"><path d="m9 18 6-6-6-6"/></svg>
+          <span class="text-navy font-semibold">Hệ sinh thái công nghệ</span>
+        </nav>
+
+        <div class="mt-10 lg:mt-14 max-w-4xl">
+          <!-- Tag -->
+          <div class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-electric/[0.06] border border-electric/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyanAccent animate-pulse shadow-glow-cyan"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-electric uppercase">
+              4 Trụ cột · Hạ tầng số &amp; Giáo dục toàn diện
+            </span>
+          </div>
+
+          <!-- H1 -->
+          <h1 class="reveal-up reveal-delay-1 mt-6 text-4xl sm:text-5xl lg:text-[3.6rem] font-extrabold tracking-tight leading-[1.05] text-navy">
+            Hệ sinh thái Bản Việt —
+            <span class="bg-gradient-to-r from-electric via-cyanAccent to-electric bg-clip-text text-transparent">Nơi công nghệ hội tụ cùng tri thức</span>
+          </h1>
+
+          <p class="reveal-up reveal-delay-2 mt-5 text-lg sm:text-xl text-navy/70 leading-relaxed max-w-3xl">
+            Cổng trung tâm kết hợp hoàn hảo giữa các
+            <strong class="text-navy font-semibold">giải pháp đào tạo thực tế</strong>
+            (Điểm 10+, DanhLingo) và
+            <strong class="text-navy font-semibold">hạ tầng công nghệ số thông minh</strong>
+            (Aitechco, Schooli).
+          </p>
+
+          <p class="reveal-up reveal-delay-3 mt-3 text-base text-navy/55 leading-relaxed max-w-3xl">
+            Bảo chứng bởi các đối tác chiến lược lớn như
+            <strong class="text-navy font-semibold">FPT</strong> và
+            <strong class="text-navy font-semibold">Cambridge</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 2: INTERACTIVE ECOSYSTEM MAP                -->
+    <!-- ================================================== -->
+    <section id="ecosystem-map" class="relative bg-slate-50 py-16 lg:py-24 overflow-hidden">
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none opacity-60"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+          <span class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-electric/[0.06] border border-electric/15">
+            <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-electric uppercase">Hub-and-Spoke Architecture</span>
+          </span>
+          <h2 class="reveal-up reveal-delay-1 mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy leading-[1.15]">
+            Sơ đồ
+            <span class="bg-gradient-to-r from-electric via-cyanAccent to-electric bg-clip-text text-transparent">kết nối công nghệ</span>
+          </h2>
+          <p class="reveal-up reveal-delay-2 mt-4 text-navy/60 leading-relaxed">
+            Mối quan hệ cộng sinh — hạ tầng công nghệ lõi nuôi dưỡng các giải pháp giáo dục chuyên biệt.
+          </p>
+        </div>
+
+        <!-- ===== MAP (desktop absolute, mobile stack) ===== -->
+        <div class="reveal-up reveal-delay-3 bv-eco-map">
+
+          <!-- SVG Connector (chỉ desktop) -->
+          <svg class="bv-eco-connectors hidden lg:block" viewBox="0 0 1000 700" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="connGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0066FF" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.3" />
+              </linearGradient>
+              <linearGradient id="connGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0066FF" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.3" />
+              </linearGradient>
+              <linearGradient id="connGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00D2D3" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#0066FF" stop-opacity="0.3" />
+              </linearGradient>
+              <linearGradient id="connGrad4" x1="100%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#0066FF" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#0066FF" stop-opacity="0.3" />
+              </linearGradient>
+            </defs>
+
+            <!-- Trung tâm ~ (500, 350) -->
+            <!-- Tới Điểm 10+ (trên trái ~ 250, 130) -->
+            <path d="M 500 350 Q 380 240 250 130" stroke="url(#connGrad1)" stroke-width="2" stroke-dasharray="6 5" fill="none" class="bv-connector-path" />
+            <!-- Tới DanhLingo (trên phải ~ 750, 130) -->
+            <path d="M 500 350 Q 620 240 750 130" stroke="url(#connGrad2)" stroke-width="2" stroke-dasharray="6 5" fill="none" class="bv-connector-path" />
+            <!-- Tới Schooli (dưới trái ~ 250, 570) -->
+            <path d="M 500 350 Q 380 460 250 570" stroke="url(#connGrad3)" stroke-width="2" stroke-dasharray="6 5" fill="none" class="bv-connector-path" />
+            <!-- Tới Aitechco (dưới phải ~ 750, 570) -->
+            <path d="M 500 350 Q 620 460 750 570" stroke="url(#connGrad4)" stroke-width="2" stroke-dasharray="6 5" fill="none" class="bv-connector-path" />
+
+            <!-- Center pulse -->
+            <circle cx="500" cy="350" r="60" fill="none" stroke="#00D2D3" stroke-opacity="0.3" stroke-width="1.5" class="bv-pulse-ring" />
+            <circle cx="500" cy="350" r="100" fill="none" stroke="#00D2D3" stroke-opacity="0.15" stroke-width="1" class="bv-pulse-ring-2" />
+          </svg>
+
+          <!-- CENTER: Core Engine -->
+          <div class="bv-eco-center">
+            <div class="bv-eco-center-inner">
+              <div class="bv-eco-center-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyanAccent animate-pulse"></span>
+                <span class="font-mono text-[10px] font-bold tracking-[0.15em] text-cyanAccent uppercase">Core Engine</span>
+              </div>
+              <h3 class="bv-eco-center-title">
+                Aitechco &amp; Schooli
+                <span class="block text-lg font-extrabold text-cyanAccent">Tech Engine</span>
+              </h3>
+              <ul class="bv-eco-center-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-cyanAccent flex-shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                  LMS · Quản lý học tập số
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-cyanAccent flex-shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                  Data Analytics · Phân tích học viên
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-cyanAccent flex-shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                  Cloud Server · FPT Infrastructure
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Satellite 1: Điểm 10+ (top-left) -->
+          <a href="#diem10" class="bv-eco-satellite bv-eco-sat-tl">
+            <div class="bv-eco-sat-icon bg-gradient-to-br from-orange-500 to-red-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/></svg>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-orange-600">Văn hóa K12</div>
+              <div class="text-base font-extrabold text-navy">Điểm 10+</div>
+              <div class="text-[11px] text-navy/50 mt-0.5">8 Campus TP.HCM</div>
+            </div>
+          </a>
+
+          <!-- Satellite 2: DanhLingo (top-right) -->
+          <a href="#danhlingo" class="bv-eco-satellite bv-eco-sat-tr">
+            <div class="bv-eco-sat-icon bg-gradient-to-br from-violet-600 to-purple-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-violet-600">Ngoại ngữ</div>
+              <div class="text-base font-extrabold text-navy">DanhLingo</div>
+              <div class="text-[11px] text-navy/50 mt-0.5">Giao tiếp sau 9h</div>
+            </div>
+          </a>
+
+          <!-- Satellite 3: Schooli (bottom-left) -->
+          <a href="#schooli" class="bv-eco-satellite bv-eco-sat-bl">
+            <div class="bv-eco-sat-icon bg-gradient-to-br from-cyanAccent to-blue-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/><path d="M12 2v3"/></svg>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-600">Virtual Campus</div>
+              <div class="text-base font-extrabold text-navy">Schooli</div>
+              <div class="text-[11px] text-navy/50 mt-0.5">WebRTC 24/7</div>
+            </div>
+          </a>
+
+          <!-- Satellite 4: Aitechco (bottom-right) -->
+          <a href="#aitechco" class="bv-eco-satellite bv-eco-sat-br">
+            <div class="bv-eco-sat-icon bg-gradient-to-br from-blue-600 to-electric">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2"/><path d="M15 2v2"/><path d="M9 20v2"/><path d="M15 20v2"/><path d="M2 9h2"/><path d="M2 15h2"/><path d="M20 9h2"/><path d="M20 15h2"/></svg>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-electric">B2B Tech</div>
+              <div class="text-base font-extrabold text-navy">Aitechco</div>
+              <div class="text-[11px] text-navy/50 mt-0.5">Cloud &amp; LMS</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 4: QUICK NUMERICAL INDEX (STICKY BAR)       -->
+    <!-- ================================================== -->
+    <div class="sticky top-[72px] z-30 bg-white/80 backdrop-blur-md border-y border-navy/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="overflow-x-auto scrollbar-none">
+          <div class="flex items-stretch min-w-max">
+            <a href="#diem10" data-index-link="diem10" class="bv-index-item">
+              <span class="bv-index-num">01</span>
+              <div>
+                <div class="bv-index-name">Điểm 10+</div>
+                <div class="bv-index-sub">K12 · Blended Learning</div>
+              </div>
+            </a>
+            <a href="#danhlingo" data-index-link="danhlingo" class="bv-index-item">
+              <span class="bv-index-num">02</span>
+              <div>
+                <div class="bv-index-name">DanhLingo</div>
+                <div class="bv-index-sub">Ngoại ngữ · 9 giờ</div>
+              </div>
+            </a>
+            <a href="#aitechco" data-index-link="aitechco" class="bv-index-item">
+              <span class="bv-index-num">03</span>
+              <div>
+                <div class="bv-index-name">Aitechco</div>
+                <div class="bv-index-sub">B2B · Cloud &amp; LMS</div>
+              </div>
+            </a>
+            <a href="#schooli" data-index-link="schooli" class="bv-index-item">
+              <span class="bv-index-num">04</span>
+              <div>
+                <div class="bv-index-name">Schooli</div>
+                <div class="bv-index-sub">Virtual · WebRTC</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- SECTION 3: 4 TECH-PRODUCT CARDS                     -->
+    <!-- ================================================== -->
+    <section class="relative bg-white py-16 lg:py-24 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+
+          <!-- ============ CARD 1: ĐIỂM 10+ ============ -->
+          <article id="diem10" class="bv-product-card bv-product-orange scroll-mt-32">
+            <!-- Accent stripe -->
+            <div class="bv-product-stripe bg-gradient-to-r from-orange-500 to-red-500"></div>
+
+            <div class="bv-product-head">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
+                <div class="h-12 flex items-center">
+                  <img src="../assets/images/diem10cong-logo.png" alt="Điểm 10+"
+                    class="h-10 w-auto object-contain" loading="lazy"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <div class="hidden w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg>
+                  </div>
+                </div>
+              </div>
+              <span class="bv-product-badge bg-orange-50 text-orange-600 border-orange-200">
+                Văn hóa K12 · 8 Campus
+              </span>
+            </div>
+
+            <div class="bv-product-body">
+              <h3 class="bv-product-title">Điểm 10+</h3>
+              <p class="bv-product-subtitle">Smart Blended Learning</p>
+
+              <p class="bv-product-desc">
+                Mô hình <strong>Blended Learning</strong> kết hợp lớp học trực tiếp tại 8 cơ sở TP.HCM
+                với hệ thống báo cáo điểm số, chuyên cần và tiến độ <strong>tự động hóa</strong> gửi về phụ huynh.
+              </p>
+
+              <!-- Tech specs -->
+              <div class="bv-product-specs">
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Campus</span>
+                  <span class="bv-spec-val">8 cơ sở TP.HCM</span>
+                </div>
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Model</span>
+                  <span class="bv-spec-val">Blended Learning</span>
+                </div>
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Automation</span>
+                  <span class="bv-spec-val">Báo cáo tự động</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bv-product-actions">
+              <a href="#" class="bv-product-btn-primary border-orange-500 text-orange-600 hover:bg-orange-50">
+                Xem chi tiết hệ thống
+              </a>
+              <a href="https://diem10cong.edu.vn/" target="_blank" rel="noopener noreferrer" class="bv-product-btn-external">
+                diem10cong.edu.vn
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- ============ CARD 2: DANHLINGO ============ -->
+          <article id="danhlingo" class="bv-product-card bv-product-violet scroll-mt-32">
+            <div class="bv-product-stripe bg-gradient-to-r from-violet-600 to-purple-600"></div>
+
+            <div class="bv-product-head">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
+                <div class="h-12 flex items-center">
+                  <img src="../assets/images/danhlingo-logo.png" alt="DanhLingo"
+                    class="h-10 w-auto object-contain" loading="lazy"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <div class="hidden w-10 h-10 rounded-lg bg-gradient-to-br from-violet-600 to-purple-600 items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+                  </div>
+                </div>
+              </div>
+              <span class="bv-product-badge bg-violet-50 text-violet-600 border-violet-200">
+                Ngoại ngữ · 9 giờ
+              </span>
+            </div>
+
+            <div class="bv-product-body">
+              <h3 class="bv-product-title">DanhLingo</h3>
+              <p class="bv-product-subtitle">Rapid Language Engine</p>
+
+              <p class="bv-product-desc">
+                Áp dụng nguyên lý <strong>Pareto 20/80</strong> kết hợp thuật toán lặp ngắt quãng
+                (<strong>Spaced Repetition</strong>) giúp tối ưu hóa thời gian ghi nhớ từ vựng và
+                phản xạ giao tiếp thực tế cho người đi làm.
+              </p>
+
+              <div class="bv-product-specs">
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Method</span>
+                  <span class="bv-spec-val">Pareto 20/80</span>
+                </div>
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Engine</span>
+                  <span class="bv-spec-val">Spaced Repetition</span>
+                </div>
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Target</span>
+                  <span class="bv-spec-val">9 giờ giao tiếp</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bv-product-actions">
+              <a href="#" class="bv-product-btn-primary border-violet-500 text-violet-600 hover:bg-violet-50">
+                Xem chi tiết khóa học
+              </a>
+              <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener noreferrer" class="bv-product-btn-external">
+                danhlingo.edu.vn
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- ============ CARD 3: AITECHCO ============ -->
+          <article id="aitechco" class="bv-product-card bv-product-electric scroll-mt-32">
+            <div class="bv-product-stripe bg-gradient-to-r from-blue-600 to-electric"></div>
+
+            <div class="bv-product-head">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
+                <div class="h-12 flex items-center">
+                  <img src="../assets/images/aitechco-logo.png" alt="Aitechco"
+                    class="h-10 w-auto object-contain" loading="lazy"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <div class="hidden w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-electric items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+                  </div>
+                </div>
+              </div>
+              <span class="bv-product-badge bg-blue-50 text-electric border-blue-200">
+                B2B Tech · Cloud &amp; LMS
+              </span>
+            </div>
+
+            <div class="bv-product-body">
+              <h3 class="bv-product-title">Aitechco</h3>
+              <p class="bv-product-subtitle">EdTech Infrastructure</p>
+
+              <p class="bv-product-desc">
+                Cung cấp giải pháp <strong>số hóa trường học</strong>, xây dựng hệ thống
+                <strong>quản lý học tập (LMS)</strong>, giải pháp máy chủ đám mây hợp tác cùng
+                <strong>tập đoàn FPT</strong> và phát triển học liệu số.
+              </p>
+
+              <div class="bv-product-specs">
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Infra</span>
+                  <span class="bv-spec-val">FPT Cloud</span>
+                </div>
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Platform</span>
+                  <span class="bv-spec-val">LMS chuyên dụng</span>
+                </div>
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Services</span>
+                  <span class="bv-spec-val">Data Analytics</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bv-product-actions">
+              <a href="#" class="bv-product-btn-primary border-electric text-electric hover:bg-blue-50">
+                Khám phá giải pháp
+              </a>
+              <a href="https://aitechco.vn/" target="_blank" rel="noopener noreferrer" class="bv-product-btn-external">
+                aitechco.vn
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- ============ CARD 4: SCHOOLI ============ -->
+          <article id="schooli" class="bv-product-card bv-product-cyan scroll-mt-32">
+            <div class="bv-product-stripe bg-gradient-to-r from-cyanAccent to-blue-500"></div>
+
+            <div class="bv-product-head">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
+                <div class="h-12 flex items-center">
+                  <img src="../assets/images/schooli-logo.png" alt="Schooli"
+                    class="h-10 w-auto object-contain" loading="lazy"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <div class="hidden w-10 h-10 rounded-lg bg-gradient-to-br from-cyanAccent to-blue-500 items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
+                  </div>
+                </div>
+              </div>
+              <span class="bv-product-badge bg-cyan-50 text-cyan-600 border-cyan-200">
+                EdTech B2C · WebRTC
+              </span>
+            </div>
+
+            <div class="bv-product-body">
+              <h3 class="bv-product-title">Schooli</h3>
+              <p class="bv-product-subtitle">Virtual Campus</p>
+
+              <p class="bv-product-desc">
+                Phòng học ảo trực tuyến <strong>độ trễ thấp</strong>, tích hợp bảng trắng tương tác
+                (<strong>Interactive Whiteboard</strong>), lưu trữ video bài giảng tự động và
+                kết nối học viên toàn cầu 24/7.
+              </p>
+
+              <div class="bv-product-specs">
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Tech</span>
+                  <span class="bv-spec-val">WebRTC Realtime</span>
+                </div>
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Feature</span>
+                  <span class="bv-spec-val">Interactive Whiteboard</span>
+                </div>
+                <div class="bv-spec-row">
+                  <span class="bv-spec-key">Uptime</span>
+                  <span class="bv-spec-val">24/7 Global</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bv-product-actions">
+              <a href="#" class="bv-product-btn-primary border-cyan-500 text-cyan-600 hover:bg-cyan-50">
+                Trải nghiệm phòng học
+              </a>
+              <a href="https://schooli.edu.vn/" target="_blank" rel="noopener noreferrer" class="bv-product-btn-external">
+                schooli.edu.vn
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <bv-footer></bv-footer>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1413,3 +1413,425 @@ html {
   .bv-tech-pillar-num { font-size: 2.75rem; }
   .bv-anchor-pill { font-size: 0.75rem; padding: 0.5rem 0.8rem; }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   ECOSYSTEM PAGE — MAP (Hub-and-Spoke)
+   ========================================================= */
+.bv-eco-map {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  .bv-eco-map {
+    aspect-ratio: 1000 / 700;
+    min-height: 700px;
+  }
+}
+
+/* SVG connector (desktop only) */
+.bv-eco-connectors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.bv-connector-path {
+  animation: bvDashMove 3s linear infinite;
+}
+@keyframes bvDashMove {
+  to { stroke-dashoffset: -22; }
+}
+.bv-pulse-ring {
+  animation: bvPulseRing 3s ease-out infinite;
+  transform-origin: 500px 350px;
+}
+.bv-pulse-ring-2 {
+  animation: bvPulseRing 3s ease-out infinite 1.5s;
+  transform-origin: 500px 350px;
+}
+@keyframes bvPulseRing {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Center card */
+.bv-eco-center {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+@media (min-width: 1024px) {
+  .bv-eco-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 380px;
+  }
+}
+.bv-eco-center-inner {
+  background: linear-gradient(135deg, #0A192F 0%, #0F233A 60%, #152B44 100%);
+  border: 1px solid rgba(0, 210, 211, 0.3);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  box-shadow:
+    0 30px 60px -20px rgba(0, 102, 255, 0.35),
+    0 0 80px -20px rgba(0, 210, 211, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+.bv-eco-center-inner::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -30%;
+  width: 300px; height: 300px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(0, 210, 211, 0.25), transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+.bv-eco-center-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(0, 210, 211, 0.1);
+  border: 1px solid rgba(0, 210, 211, 0.25);
+  margin-bottom: 0.9rem;
+  position: relative;
+}
+.bv-eco-center-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.bv-eco-center-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  position: relative;
+}
+.bv-eco-center-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Satellites */
+.bv-eco-satellite {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 35, 58, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px -12px rgba(15, 35, 58, 0.15);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  max-width: 100%;
+}
+.bv-eco-satellite:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -14px rgba(15, 35, 58, 0.22);
+  border-color: rgba(0, 102, 255, 0.25);
+}
+@media (min-width: 1024px) {
+  .bv-eco-satellite {
+    position: absolute;
+    width: 260px;
+  }
+  .bv-eco-sat-tl { top: 0%; left: 0%; }
+  .bv-eco-sat-tr { top: 0%; right: 0%; }
+  .bv-eco-sat-bl { bottom: 0%; left: 0%; }
+  .bv-eco-sat-br { bottom: 0%; right: 0%; }
+}
+
+.bv-eco-sat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px -6px rgba(15, 35, 58, 0.3);
+  transition: transform 0.3s ease;
+}
+.bv-eco-satellite:hover .bv-eco-sat-icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+/* Mobile: satellites grid 2x2 */
+@media (max-width: 1023px) {
+  .bv-eco-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .bv-eco-map .bv-eco-center {
+    grid-column: 1 / -1;
+  }
+  .bv-eco-map .bv-eco-satellite {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 0.85rem 0.75rem;
+  }
+  .bv-eco-map .bv-eco-satellite > div:last-child {
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   STICKY INDEX BAR
+   ========================================================= */
+.bv-index-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.15rem;
+  border-right: 1px solid rgba(15, 35, 58, 0.06);
+  transition: background-color 0.25s ease;
+  white-space: nowrap;
+  position: relative;
+}
+.bv-index-item:last-child { border-right: none; }
+.bv-index-item:hover {
+  background-color: rgba(0, 102, 255, 0.04);
+}
+.bv-index-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(15, 35, 58, 0.2);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.bv-index-item:hover .bv-index-num {
+  -webkit-text-stroke-color: #0066FF;
+  text-shadow: 0 0 12px rgba(0, 102, 255, 0.4);
+}
+.bv-index-name {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0A192F;
+  line-height: 1.1;
+}
+.bv-index-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(15, 35, 58, 0.4);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* =========================================================
+   PRODUCT CARDS
+   ========================================================= */
+.bv-product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(15, 35, 58, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px -12px rgba(15, 35, 58, 0.08);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.bv-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px -20px rgba(15, 35, 58, 0.18);
+}
+.bv-product-card.bv-product-orange:hover { border-color: rgba(249, 115, 22, 0.3); }
+.bv-product-card.bv-product-violet:hover { border-color: rgba(124, 58, 237, 0.3); }
+.bv-product-card.bv-product-electric:hover { border-color: rgba(0, 102, 255, 0.3); }
+.bv-product-card.bv-product-cyan:hover { border-color: rgba(0, 210, 211, 0.35); }
+
+/* Flash highlight khi click từ index */
+.bv-product-card.is-flash {
+  animation: bvCardFlash 1.5s ease-out;
+}
+@keyframes bvCardFlash {
+  0%, 100% { box-shadow: 0 6px 24px -12px rgba(15, 35, 58, 0.08); }
+  30% { box-shadow: 0 0 0 4px rgba(0, 210, 211, 0.4), 0 24px 50px -20px rgba(0, 102, 255, 0.3); }
+}
+
+.bv-product-stripe {
+  height: 4px;
+  width: 100%;
+}
+
+.bv-product-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(15, 35, 58, 0.05);
+}
+.bv-product-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.65rem;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.bv-product-body {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+}
+.bv-product-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0A192F;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.bv-product-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(15, 35, 58, 0.4);
+  margin-top: 4px;
+  margin-bottom: 1rem;
+}
+.bv-product-desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(15, 35, 58, 0.65);
+}
+
+.bv-product-specs {
+  margin-top: 1.1rem;
+  border: 1px solid rgba(15, 35, 58, 0.06);
+  border-radius: 10px;
+  background: rgba(15, 35, 58, 0.02);
+  overflow: hidden;
+}
+.bv-spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid rgba(15, 35, 58, 0.04);
+}
+.bv-spec-row:last-child { border-bottom: none; }
+.bv-spec-key {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(15, 35, 58, 0.4);
+}
+.bv-spec-val {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0A192F;
+}
+
+.bv-product-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem 1.25rem;
+  border-top: 1px solid rgba(15, 35, 58, 0.05);
+  flex-wrap: wrap;
+}
+.bv-product-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1rem;
+  border: 1.5px solid;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  transition: all 0.25s ease;
+  background: transparent;
+  white-space: nowrap;
+}
+.bv-product-btn-external {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: rgba(15, 35, 58, 0.55);
+  background: rgba(15, 35, 58, 0.03);
+  border: 1px solid rgba(15, 35, 58, 0.06);
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.bv-product-btn-external:hover {
+  color: #0066FF;
+  background: rgba(0, 102, 255, 0.06);
+  border-color: rgba(0, 102, 255, 0.2);
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .bv-product-title { font-size: 1.35rem; }
+  .bv-product-head { padding: 1rem 1.15rem 0.85rem; flex-wrap: wrap; }
+  .bv-product-badge { font-size: 8.5px; }
+  .bv-product-body { padding: 1rem 1.15rem; }
+  .bv-product-actions { padding: 0.85rem 1.15rem 1rem; }
+  .bv-product-btn-primary { width: 100%; justify-content: center; }
+  .bv-product-btn-external { width: 100%; justify-content: center; }
+  .bv-index-num { font-size: 1.1rem; }
+  .bv-index-name { font-size: 0.72rem; }
+  .bv-index-sub { font-size: 8.5px; }
+  .bv-index-item { padding: 0.75rem 0.85rem; }
+}

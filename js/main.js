@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initAnchorBar();
   initTimelineScroll();
+  initEcosystemIndex();
 });
 
 /* ---------- Scroll reveal ---------- */
@@ -289,4 +290,32 @@ function initTimelineScroll() {
   updateBeam();
   window.addEventListener('scroll', updateBeam, { passive: true });
   window.addEventListener('resize', updateBeam);
+}
+
+
+
+/* =========================================================
+   ECOSYSTEM PAGE — Sticky Index scroll + flash
+   ========================================================= */
+function initEcosystemIndex() {
+  const links = document.querySelectorAll('[data-index-link]');
+  if (!links.length) return;
+
+  links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = link.dataset.indexLink;
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      // Smooth scroll với offset cho sticky (header 72px + index ~64px)
+      const yOffset = -150;
+      const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+
+      // Flash highlight
+      target.classList.add('is-flash');
+      setTimeout(() => target.classList.remove('is-flash'), 1600);
+    });
+  });
 }

@@ -28,7 +28,7 @@ const ICONS = {
 /* ---------- NAV & ECOSYSTEM DATA ---------- */
 const NAV_ITEMS = [
   { label: 'Trang chủ', href: '../index.html' },
-  { label: 'Hệ sinh thái', href: '#he-sinh-thai', dropdown: true },
+  { label: 'Hệ sinh thái', href: '../pages/ecosystem.html', dropdown: true },
   { label: 'Khóa học', href: '#khoa-hoc' },
   { label: 'Về chúng tôi', href: '../pages/about.html' },
   { label: 'Tin tức', href: '#tin-tuc' },
@@ -98,7 +98,7 @@ class BvHeader extends HTMLElement {
                             ${renderMegaCards()}
                           </div>
                           <div class="mt-2 pt-2 border-t border-navy/[0.06] px-2 pb-1">
-                            <a href="#he-sinh-thai" class="text-xs font-bold text-electric hover:text-electric-600 inline-flex items-center gap-1">
+                            <a href="../pages/ecosystem.html" class="text-xs font-bold text-electric hover:text-electric-600 inline-flex items-center gap-1">
                               Xem tất cả hệ sinh thái ${ICONS.arrowRight}
                             </a>
                           </div>
