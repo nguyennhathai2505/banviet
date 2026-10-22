@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DanhLingo — Giao tiếp tự tin chỉ sau 9 giờ học</title>
+  <meta name="description" content="DanhLingo — Đào tạo ngoại ngữ tốc độ cao Anh - Hoa - Nhật - Hàn. Giao tiếp tự tin sau 9 giờ với Nguyên lý Pareto 20/80 & Phản xạ ứng dụng." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            navy: { DEFAULT: '#0A192F', 900: '#0F233A', 800: '#152B44', 700: '#1B3550' },
+            electric: { DEFAULT: '#0066FF', 600: '#0052CC', 500: '#1A7AFF' },
+            cyanAccent: '#00D2D3',
+            terracotta: { DEFAULT: '#E11D48', 500: '#EA580C', 600: '#C2410C', 700: '#9A3412', amber: '#D97706' },
+          },
+          boxShadow: {
+            'glow-terra': '0 0 40px -8px rgba(234, 88, 12, 0.4)',
+            'glow-orange': '0 0 30px -6px rgba(217, 119, 6, 0.5)',
+            'card': '0 4px 20px -8px rgba(15, 35, 58, 0.08)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="font-sans bg-white text-navy antialiased overflow-x-hidden">
+
+  <bv-header></bv-header>
+
+  <main>
+
+    <!-- ================================================== -->
+    <!-- SECTION 1: BRAND HERO                               -->
+    <!-- ================================================== -->
+    <section class="relative overflow-hidden bg-white">
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none"></div>
+      <div class="absolute -top-40 -left-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-terracotta/10 via-terracotta-500/5 to-transparent blur-3xl pointer-events-none"></div>
+      <div class="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-terracotta-amber/10 via-terracotta-500/5 to-transparent blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 lg:pt-12 pb-16 lg:pb-20">
+
+        <div class="reveal-up flex items-center justify-between gap-4 flex-wrap">
+          <nav class="flex items-center gap-2 text-xs text-navy/40 font-medium flex-wrap">
+            <a href="../index.html" class="hover:text-terracotta-500 transition-colors">Trang chủ</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-navy/25"><path d="m9 18 6-6-6-6"/></svg>
+            <a href="./ecosystem.html" class="hover:text-terracotta-500 transition-colors">Hệ sinh thái</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-navy/25"><path d="m9 18 6-6-6-6"/></svg>
+            <span class="text-terracotta font-semibold">DanhLingo</span>
+          </nav>
+
+          <a href="./ecosystem.html"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-navy/70 border border-navy/15 hover:border-terracotta-500 hover:text-terracotta-500 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+            Quay lại Hệ sinh thái
+          </a>
+        </div>
+
+        <div class="mt-10 lg:mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+          <!-- LEFT -->
+          <div>
+            <div class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-terracotta/[0.06] border border-terracotta/25">
+              <span class="w-1.5 h-1.5 rounded-full bg-terracotta-500 animate-pulse shadow-glow-terra"></span>
+              <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-terracotta uppercase">
+                Đào tạo ngoại ngữ tốc độ cao · Anh – Hoa – Nhật – Hàn
+              </span>
+            </div>
+
+            <h1 class="reveal-up reveal-delay-1 mt-6 text-4xl sm:text-5xl lg:text-[3.2rem] font-extrabold tracking-tight leading-[1.05] text-navy">
+              DanhLingo —
+              <span class="bg-gradient-to-r from-terracotta via-terracotta-500 to-terracotta-amber bg-clip-text text-transparent">
+                Giao tiếp tự tin chỉ sau 9 giờ học
+              </span>
+            </h1>
+
+            <p class="reveal-up reveal-delay-2 mt-4 text-lg font-semibold text-navy/75 leading-snug">
+              Đột phá ngôn ngữ nhờ Nguyên lý Pareto 20/80 &amp; Phản xạ ứng dụng.
+            </p>
+
+            <p class="reveal-up reveal-delay-3 mt-4 text-base text-navy/60 leading-relaxed max-w-xl">
+              Tối ưu hóa <strong class="text-navy">80% kết quả giao tiếp</strong> thực tế chỉ từ
+              <strong class="text-navy">20% cốt lõi</strong> từ vựng và cấu trúc tần suất cao.
+              Phương pháp thiết kế riêng cho người đi làm, học sinh và sinh viên cần thành thạo nhanh.
+            </p>
+
+            <div class="reveal-up reveal-delay-4 mt-7 flex flex-wrap items-center gap-3">
+              <a href="#dang-ky-danhlingo"
+                class="group inline-flex items-center gap-2 px-6 h-12 rounded-xl
+                       text-white text-sm font-bold
+                       bg-gradient-to-r from-terracotta via-terracotta-500 to-terracotta-amber
+                       shadow-glow-terra hover:shadow-[0_0_50px_-8px_rgba(234,88,12,0.7)]
+                       hover:-translate-y-0.5 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Đăng ký kiểm tra trình độ &amp; Học thử
+              </a>
+              <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 h-12 rounded-xl
+                       text-sm font-bold text-navy/80
+                       border border-navy/15 hover:border-terracotta-500 hover:text-terracotta-500
+                       transition-all">
+                Truy cập website
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT: 9-Hour Fluency Matrix -->
+          <div class="reveal-up reveal-delay-3 relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-terracotta/20 via-terracotta-500/10 to-transparent blur-3xl rounded-full scale-90 pointer-events-none"></div>
+
+            <div class="relative bv-dl-engine">
+              <!-- Top bar -->
+              <div class="flex items-center justify-between pb-3 mb-3 border-b border-navy/[0.06]">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-terracotta to-terracotta-500 flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v6l4 2"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-[10px] font-mono font-bold tracking-wider text-terracotta uppercase">Fluency Matrix</div>
+                    <div class="text-xs font-extrabold text-navy">9-Hour Progress</div>
+                  </div>
+                </div>
+                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-terracotta-amber bg-terracotta-amber/10 px-1.5 py-0.5 rounded border border-terracotta-amber/20">
+                  <span class="w-1 h-1 rounded-full bg-terracotta-amber animate-pulse"></span>
+                  LIVE
+                </span>
+              </div>
+
+              <!-- Progress Ring + Mastery -->
+              <div class="bv-dl-progress-card">
+                <div class="flex items-center gap-4">
+                  <!-- Circular progress -->
+                  <div class="relative w-[88px] h-[88px] flex-shrink-0">
+                    <svg viewBox="0 0 100 100" class="w-full h-full -rotate-90">
+                      <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(15,35,58,0.08)" stroke-width="8" />
+                      <circle cx="50" cy="50" r="42" fill="none" stroke="url(#ringGrad)" stroke-width="8"
+                        stroke-linecap="round" stroke-dasharray="263.89"
+                        stroke-dashoffset="175.93" class="bv-ring-anim" />
+                      <defs>
+                        <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#E11D48" />
+                          <stop offset="100%" stop-color="#EA580C" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                      <div class="text-xl font-extrabold text-navy leading-none">3<span class="text-sm text-navy/40">/9</span></div>
+                      <div class="text-[9px] font-mono font-bold text-navy/40 uppercase tracking-wider mt-0.5">Hours</div>
+                    </div>
+                  </div>
+
+                  <div class="min-w-0 flex-1">
+                    <div class="text-[10px] font-mono font-bold text-navy/40 uppercase tracking-wider">Daily Contexts</div>
+                    <div class="mt-1 flex items-baseline gap-1">
+                      <span class="text-2xl font-extrabold text-navy">80</span>
+                      <span class="text-sm font-bold text-navy/40">%</span>
+                    </div>
+                    <div class="mt-1 h-1.5 rounded-full bg-navy/10 overflow-hidden">
+                      <div class="h-full rounded-full bg-gradient-to-r from-terracotta to-terracotta-amber" style="width:80%"></div>
+                    </div>
+                    <div class="text-[10px] text-navy/40 font-medium mt-1">Mastered</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SRS Card -->
+              <div class="bv-dl-srs-card mt-3">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[10px] font-mono font-bold text-navy/50 uppercase tracking-wider">Spaced Repetition</span>
+                  <span class="font-mono text-[10px] text-navy/40">Day 3</span>
+                </div>
+                <div class="space-y-1.5">
+                  <div class="bv-dl-word">
+                    <div class="flex-1 min-w-0">
+                      <div class="text-sm font-extrabold text-navy">Schedule</div>
+                      <div class="text-[10px] font-mono text-navy/40">/ˈskedʒ.uːl/</div>
+                    </div>
+                    <span class="bv-srs-badge bg-emerald-50 text-emerald-600 border-emerald-200">Mastered</span>
+                  </div>
+                  <div class="bv-dl-word">
+                    <div class="flex-1 min-w-0">
+                      <div class="text-sm font-extrabold text-navy">Meeting</div>
+                      <div class="text-[10px] font-mono text-navy/40">/ˈmiː.tɪŋ/</div>
+                    </div>
+                    <span class="bv-srs-badge bg-terracotta-amber/10 text-terracotta-amber border-terracotta-amber/30">Review · 2h</span>
+                  </div>
+                  <div class="bv-dl-word">
+                    <div class="flex-1 min-w-0">
+                      <div class="text-sm font-extrabold text-navy">Deadline</div>
+                      <div class="text-[10px] font-mono text-navy/40">/ˈded.laɪn/</div>
+                    </div>
+                    <span class="bv-srs-badge bg-blue-50 text-blue-600 border-blue-200">New</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Badges -->
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-navy/[0.04] border border-navy/[0.06] text-[9px] font-bold text-navy/60 uppercase tracking-wider">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-terracotta"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+                  Phản xạ tự nhiên
+                </span>
+                <span class="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-navy/[0.04] border border-navy/[0.06] text-[9px] font-bold text-navy/60 uppercase tracking-wider">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-terracotta"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                  IPA chuẩn
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 2: METHOD BENCHMARK                         -->
+    <!-- ================================================== -->
+    <section class="relative bg-slate-50 py-16 lg:py-24 overflow-hidden">
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none opacity-40"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-terracotta/[0.06] border border-terracotta/15">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracotta-500 animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-terracotta uppercase">Phương pháp luận</span>
+          </span>
+          <h2 class="reveal-up reveal-delay-1 mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy leading-[1.15]">
+            Pareto 20/80 &amp;
+            <span class="bg-gradient-to-r from-terracotta to-terracotta-amber bg-clip-text text-transparent">Spaced Repetition</span>
+          </h2>
+          <p class="reveal-up reveal-delay-2 mt-4 text-navy/60 leading-relaxed">
+            Ba trụ cột khoa học tạo nên cam kết "giao tiếp sau 9 giờ".
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+
+          <div class="reveal-up reveal-delay-1 bv-dl-method-card">
+            <div class="bv-dl-method-num">01</div>
+            <div class="bv-dl-method-icon bg-gradient-to-br from-terracotta to-terracotta-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+            </div>
+            <h3 class="bv-dl-method-title">Pareto 20/80</h3>
+            <div class="bv-dl-method-sub">Core Focus</div>
+            <p class="bv-dl-method-desc">
+              Tập trung 100% vào <strong>20% cấu trúc ngữ pháp</strong> và từ vựng xuất hiện trong
+              <strong>80% tình huống</strong> giao tiếp hàng ngày &amp; công sở.
+            </p>
+          </div>
+
+          <div class="reveal-up reveal-delay-2 bv-dl-method-card">
+            <div class="bv-dl-method-num">02</div>
+            <div class="bv-dl-method-icon bg-gradient-to-br from-terracotta-500 to-terracotta-amber">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            </div>
+            <h3 class="bv-dl-method-title">Spaced Repetition</h3>
+            <div class="bv-dl-method-sub">Lặp lại ngắt quãng</div>
+            <p class="bv-dl-method-desc">
+              Áp dụng nhịp ôn tập khoa học giúp ghi nhớ từ vựng vào <strong>trí nhớ dài hạn</strong>
+              mà không cần học thuộc lòng thụ động.
+            </p>
+          </div>
+
+          <div class="reveal-up reveal-delay-3 bv-dl-method-card">
+            <div class="bv-dl-method-num">03</div>
+            <div class="bv-dl-method-icon bg-gradient-to-br from-terracotta-amber to-terracotta-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="bv-dl-method-title">Role-Play</h3>
+            <div class="bv-dl-method-sub">Phản xạ tình huống</div>
+            <p class="bv-dl-method-desc">
+              100% thời lượng trên lớp là <strong>thực hành đóng vai</strong> tình huống
+              (phỏng vấn, đàm phán, du lịch, giao tiếp đối tác).
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 3: THE 4 LANGUAGE HUBS                      -->
+    <!-- ================================================== -->
+    <section class="relative bg-white py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-terracotta/[0.06] border border-terracotta/15">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracotta-500 animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-terracotta uppercase">4 Ngôn ngữ trọng tâm</span>
+          </span>
+          <h2 class="reveal-up reveal-delay-1 mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy leading-[1.15]">
+            The 4
+            <span class="bg-gradient-to-r from-terracotta to-terracotta-amber bg-clip-text text-transparent">Language Hubs</span>
+          </h2>
+          <p class="reveal-up reveal-delay-2 mt-4 text-navy/60 leading-relaxed">
+            Anh · Hoa · Nhật · Hàn — mỗi ngôn ngữ có lộ trình tối ưu riêng cho người đi làm.
+          </p>
+        </div>
+
+        <div id="dl-language-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6"></div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 4: FLEXIBLE LEARNING SCHEDULE               -->
+    <!-- ================================================== -->
+    <section class="relative bg-slate-50 py-16 lg:py-24 overflow-hidden">
+      <div class="absolute inset-0 bv-tech-grid pointer-events-none opacity-40"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="reveal-up inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-terracotta/[0.06] border border-terracotta/15">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracotta-500 animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-terracotta uppercase">Lịch học linh hoạt</span>
+          </span>
+          <h2 class="reveal-up reveal-delay-1 mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy leading-[1.15]">
+            Flexible Learning
+            <span class="bg-gradient-to-r from-terracotta to-terracotta-amber bg-clip-text text-transparent">Schedule</span>
+          </h2>
+          <p class="reveal-up reveal-delay-2 mt-4 text-navy/60 leading-relaxed">
+            Chọn ca học và hình thức phù hợp — phù hợp cả người đi làm xoay ca.
+          </p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="reveal-up reveal-delay-3 flex justify-center mb-8">
+          <div class="inline-flex gap-1 p-1.5 rounded-2xl bg-white border border-navy/[0.06] shadow-card">
+            <button type="button" data-dl-schedule-tab="morning" class="bv-dl-sched-tab is-active">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+              Ca sáng
+            </button>
+            <button type="button" data-dl-schedule-tab="evening" class="bv-dl-sched-tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              Ca tối
+            </button>
+          </div>
+        </div>
+
+        <!-- Matrix -->
+        <div class="reveal-up reveal-delay-4">
+          <div class="bv-dl-matrix" id="dl-schedule-matrix"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SECTION 5: RAPID REGISTRATION FORM                  -->
+    <!-- ================================================== -->
+    <section id="dang-ky-danhlingo" class="relative bg-white pb-20 lg:pb-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal-up relative bv-dl-consult overflow-hidden">
+
+          <div class="absolute -top-40 -right-32 w-[500px] h-[500px] rounded-full bg-terracotta-amber/20 blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-terracotta/20 blur-3xl pointer-events-none"></div>
+          <div class="absolute inset-0 bv-tech-grid-dark pointer-events-none opacity-30"></div>
+
+          <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-8 sm:p-10 lg:p-14">
+
+            <!-- Info -->
+            <div class="lg:col-span-5">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 border border-white/15 backdrop-blur-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                <span class="font-mono text-[11px] font-bold tracking-[0.15em] text-white uppercase">Rapid Registration</span>
+              </div>
+
+              <h2 class="mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-[1.15]">
+                Đăng ký Kiểm tra Trình độ miễn phí &amp;
+                <span class="text-white/70">Trải nghiệm 1 giờ học phản xạ</span>
+              </h2>
+
+              <p class="mt-4 text-white/70 leading-relaxed">
+                Nhận ngay <strong class="text-white">phân tích chỉ số phản xạ ngôn ngữ</strong> và
+                bản đồ lộ trình 9 giờ cá nhân hóa.
+              </p>
+
+              <ul class="mt-6 space-y-2.5">
+                <li class="flex items-start gap-2.5 text-sm text-white/75">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-white/15 border border-white/25 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span>Test trình độ 4 kỹ năng chuẩn CEFR</span>
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-white/75">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-white/15 border border-white/25 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span>Học thử 1 giờ phản xạ cùng giáo viên</span>
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-white/75">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-white/15 border border-white/25 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span>Lộ trình 9 giờ cá nhân hóa bằng văn bản</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Form -->
+            <div class="lg:col-span-7">
+              <form id="dl-consult-form" class="bg-white/[0.08] border border-white/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-xs font-semibold text-white/70 mb-1.5">Họ và tên</label>
+                    <input type="text" name="name" required placeholder="Nguyễn Văn A" class="bv-dl-input" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-white/70 mb-1.5">Số điện thoại</label>
+                    <input type="tel" name="phone" required placeholder="0933 39 8787" class="bv-dl-input" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-white/70 mb-2">Ngôn ngữ muốn học</label>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <button type="button" data-dl-lang-chip="english" class="bv-dl-lang-chip">
+                      <span class="w-5 h-5 flex-shrink-0 rounded overflow-hidden">
+                        <svg viewBox="0 0 30 20" class="w-full h-full"><rect width="30" height="20" fill="#012169"/><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="3"/><path d="M0 0l30 20M30 0L0 20" stroke="#C8102E" stroke-width="1.5"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="5"/><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3"/></svg>
+                      </span>
+                      Tiếng Anh
+                    </button>
+                    <button type="button" data-dl-lang-chip="chinese" class="bv-dl-lang-chip">
+                      <span class="w-5 h-5 flex-shrink-0 rounded overflow-hidden">
+                        <svg viewBox="0 0 30 20" class="w-full h-full"><rect width="30" height="20" fill="#DE2910"/><circle cx="6" cy="6" r="2.5" fill="#FFDE00"/><circle cx="11" cy="3" r="0.9" fill="#FFDE00"/><circle cx="12.5" cy="5.5" r="0.9" fill="#FFDE00"/><circle cx="12" cy="8.5" r="0.9" fill="#FFDE00"/><circle cx="10" cy="10.5" r="0.9" fill="#FFDE00"/></svg>
+                      </span>
+                      Tiếng Hoa
+                    </button>
+                    <button type="button" data-dl-lang-chip="japanese" class="bv-dl-lang-chip">
+                      <span class="w-5 h-5 flex-shrink-0 rounded overflow-hidden">
+                        <svg viewBox="0 0 30 20" class="w-full h-full"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="5" fill="#BC002D"/></svg>
+                      </span>
+                      Tiếng Nhật
+                    </button>
+                    <button type="button" data-dl-lang-chip="korean" class="bv-dl-lang-chip">
+                      <span class="w-5 h-5 flex-shrink-0 rounded overflow-hidden">
+                        <svg viewBox="0 0 30 20" class="w-full h-full"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="4" fill="#CD2E3A"/><path d="M15 6 a4 4 0 0 1 0 8 a2 2 0 0 1 0-4 a2 2 0 0 0 0-4z" fill="#0047A0"/></svg>
+                      </span>
+                      Tiếng Hàn
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-white/70 mb-2">Khung giờ rảnh</label>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button type="button" data-dl-time-chip="morning" class="bv-dl-time-chip">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                      Ca sáng
+                    </button>
+                    <button type="button" data-dl-time-chip="evening" class="bv-dl-time-chip">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                      Ca tối
+                    </button>
+                  </div>
+                </div>
+
+                <button type="submit"
+                  class="w-full h-12 rounded-xl text-sm font-bold text-terracotta-700 bg-white
+                         hover:bg-terracotta-500 hover:text-white
+                         shadow-[0_0_30px_-8px_rgba(255,255,255,0.3)]
+                         transition-all flex items-center justify-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  Gửi yêu cầu đăng ký
+                </button>
+                <p class="text-[11px] text-white/50 text-center leading-relaxed">
+                  Bằng việc gửi, bạn đồng ý với chính sách bảo mật của DanhLingo.
+                </p>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <bv-footer></bv-footer>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/danhlingo-data.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

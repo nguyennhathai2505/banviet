@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAiQuizModal();  
   initNewsPage();
   initDiem10Page();
+  initDanhLingoPage();
 });
 
 /* ---------- Scroll reveal ---------- */
@@ -1168,4 +1169,201 @@ function initDiem10Page() {
 
   // Init
   updateD10Counts();
+}
+
+
+/* =========================================================
+   DANHLINGO PAGE
+   ========================================================= */
+function initDanhLingoPage() {
+  const langGrid = document.getElementById('dl-language-grid');
+  if (!langGrid || typeof DANHLINGO_LANGUAGES === 'undefined') return;
+
+  // Flag SVGs
+  const FLAGS = {
+    uk: `<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"/><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="3"/><path d="M0 0l30 20M30 0L0 20" stroke="#C8102E" stroke-width="1.5"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="5"/><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3"/></svg>`,
+    cn: `<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#DE2910"/><circle cx="6" cy="6" r="2.5" fill="#FFDE00"/><circle cx="11" cy="3" r="0.9" fill="#FFDE00"/><circle cx="12.5" cy="5.5" r="0.9" fill="#FFDE00"/><circle cx="12" cy="8.5" r="0.9" fill="#FFDE00"/><circle cx="10" cy="10.5" r="0.9" fill="#FFDE00"/></svg>`,
+    jp: `<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="5" fill="#BC002D"/></svg>`,
+    kr: `<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="4" fill="#CD2E3A"/><path d="M15 6 a4 4 0 0 1 0 8 a2 2 0 0 1 0-4 a2 2 0 0 0 0-4z" fill="#0047A0"/></svg>`,
+  };
+
+  // ===== Render language cards =====
+  const renderLangCard = (l) => `
+    <article class="bv-dl-lang-card" data-dl-lang="${l.id}">
+      <div class="bv-dl-lang-head">
+        <div class="bv-dl-flag">${FLAGS[l.flagKey]}</div>
+        <div class="flex-1 min-w-0">
+          <div class="bv-dl-lang-name">${l.name}</div>
+          <div class="bv-dl-lang-sub">${l.subtitle}</div>
+        </div>
+        <span class="bv-dl-lang-badge">Giao tiếp sau 9h</span>
+      </div>
+
+      <div class="bv-dl-lang-meta">
+        <span class="bv-dl-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          9 giờ
+        </span>
+        <span class="bv-dl-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Offline + Online
+        </span>
+      </div>
+
+      <div class="bv-dl-lang-section">
+        <div class="bv-dl-lang-section-label">Target</div>
+        <div class="bv-dl-lang-section-text">${l.target}</div>
+      </div>
+
+      <div class="bv-dl-lang-section">
+        <div class="bv-dl-lang-section-label">Format</div>
+        <div class="bv-dl-lang-section-text">${l.format}</div>
+      </div>
+
+      <ul class="bv-dl-lang-features">
+        ${l.features.map((f) => `
+          <li class="bv-dl-lang-feature">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span>${f}</span>
+          </li>
+        `).join('')}
+      </ul>
+
+      <div class="bv-dl-lang-actions">
+        <button type="button" data-dl-enroll="${l.id}" class="bv-dl-lang-btn bv-dl-lang-btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Đăng ký học thử
+        </button>
+        <a href="#" class="bv-dl-lang-btn bv-dl-lang-btn-secondary">
+          Xem chi tiết
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+  `;
+
+  langGrid.innerHTML = DANHLINGO_LANGUAGES.map(renderLangCard).join('');
+
+  // ===== Schedule matrix =====
+  const matrix = document.getElementById('dl-schedule-matrix');
+  const schedTabs = document.querySelectorAll('[data-dl-schedule-tab]');
+  let currentScheduleKey = 'morning';
+
+  const STATUS_LABEL = {
+    available: 'Còn chỗ',
+    nearly: 'Sắp đầy',
+    full: 'Hết chỗ',
+  };
+
+  const renderMatrix = (key) => {
+    const sched = DANHLINGO_SCHEDULE[key];
+    if (!matrix || !sched) return;
+
+    const cols = sched.times.map((time, tIdx) => {
+      const slots = sched.modes.map((mode, mIdx) => {
+        const status = sched.data[tIdx][mIdx];
+        const disabled = status === 'full';
+        return `
+          <button type="button" class="bv-dl-slot bv-dl-slot-${status}"
+            ${disabled ? 'disabled' : ''}
+            data-slot-status="${status}"
+            data-slot-time="${time}"
+            data-slot-mode="${mode}">
+            <div class="bv-dl-slot-mode">${mode}</div>
+            <span class="bv-dl-slot-status">${STATUS_LABEL[status]}</span>
+          </button>
+        `;
+      }).join('');
+
+      return `
+        <div class="bv-dl-matrix-col">
+          <div class="bv-dl-matrix-head">
+            <div class="bv-dl-matrix-head-time">${time}</div>
+            <div class="bv-dl-matrix-head-label">${sched.label}</div>
+          </div>
+          ${slots}
+        </div>
+      `;
+    }).join('');
+
+    matrix.innerHTML = cols;
+
+    // Attach click handler
+    matrix.querySelectorAll('.bv-dl-slot:not(.bv-dl-slot-full)').forEach((slot) => {
+      slot.addEventListener('click', () => {
+        // Prefill time chip based on morning/evening
+        const timeChipKey = currentScheduleKey;
+        document.querySelectorAll('[data-dl-time-chip]').forEach((c) => {
+          c.classList.toggle('is-selected', c.dataset.dlTimeChip === timeChipKey);
+        });
+        // Scroll to form
+        document.getElementById('dang-ky-danhlingo')?.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => document.querySelector('#dl-consult-form [name="name"]')?.focus(), 700);
+      });
+    });
+  };
+
+  schedTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      schedTabs.forEach((t) => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      currentScheduleKey = tab.dataset.dlScheduleTab;
+      renderMatrix(currentScheduleKey);
+    });
+  });
+
+  renderMatrix(currentScheduleKey);
+
+  // ===== Language / Time chips in form =====
+  let selectedLang = null;
+  let selectedTime = null;
+
+  document.querySelectorAll('[data-dl-lang-chip]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('[data-dl-lang-chip]').forEach((c) => c.classList.remove('is-selected'));
+      chip.classList.add('is-selected');
+      selectedLang = chip.dataset.dlLangChip;
+    });
+  });
+  document.querySelectorAll('[data-dl-time-chip]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('[data-dl-time-chip]').forEach((c) => c.classList.remove('is-selected'));
+      chip.classList.add('is-selected');
+      selectedTime = chip.dataset.dlTimeChip;
+    });
+  });
+
+  // ===== Enroll button on lang card → prefill form =====
+  langGrid.querySelectorAll('[data-dl-enroll]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const langId = btn.dataset.dlEnroll;
+      // Select corresponding chip
+      document.querySelectorAll('[data-dl-lang-chip]').forEach((c) => {
+        c.classList.toggle('is-selected', c.dataset.dlLangChip === langId);
+      });
+      selectedLang = langId;
+      // Scroll
+      document.getElementById('dang-ky-danhlingo')?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => document.querySelector('#dl-consult-form [name="name"]')?.focus(), 700);
+    });
+  });
+
+  // ===== Form submit =====
+  const form = document.getElementById('dl-consult-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.querySelector('[name="name"]').value.trim();
+    const phone = form.querySelector('[name="phone"]').value.trim();
+
+    if (!name) { alert('Vui lòng nhập họ tên'); return; }
+    if (!phone || !/^[0-9+\s\-().]{8,}$/.test(phone)) { alert('Vui lòng nhập SĐT hợp lệ'); return; }
+    if (!selectedLang) { alert('Vui lòng chọn ngôn ngữ muốn học'); return; }
+    if (!selectedTime) { alert('Vui lòng chọn khung giờ rảnh'); return; }
+
+    showToast(`Cảm ơn ${name}! DanhLingo sẽ liên hệ trong 24h.`);
+    form.reset();
+    document.querySelectorAll('[data-dl-lang-chip], [data-dl-time-chip]').forEach((c) => c.classList.remove('is-selected'));
+    selectedLang = null;
+    selectedTime = null;
+  });
 }
