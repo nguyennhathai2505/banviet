@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsPage();
   initDiem10Page();
   initDanhLingoPage();
+
+  initAitechcoPage();
 });
 
 /* ---------- Scroll reveal ---------- */
@@ -1365,5 +1367,126 @@ function initDanhLingoPage() {
     document.querySelectorAll('[data-dl-lang-chip], [data-dl-time-chip]').forEach((c) => c.classList.remove('is-selected'));
     selectedLang = null;
     selectedTime = null;
+  });
+}
+
+
+
+
+
+
+/* =========================================================
+   AITECHCO PAGE
+   ========================================================= */
+function initAitechcoPage() {
+  const solutionsGrid = document.getElementById('aitechco-solutions-grid');
+  const alliancesGrid = document.getElementById('aitechco-alliances-grid');
+  if (!solutionsGrid || typeof AITECHCO_SOLUTIONS === 'undefined') return;
+
+  // ===== Icons =====
+  const SOLUTION_ICONS = {
+    layers: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>`,
+    cloud: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>`,
+    fileCheck: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>`,
+    devices: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>`,
+    cloudServer: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>`,
+    apiPlug: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>`,
+  };
+
+  // ===== Render solutions =====
+  solutionsGrid.innerHTML = AITECHCO_SOLUTIONS.map((s) => `
+    <article class="bv-aitech-solution reveal-up">
+      <div class="bv-aitech-solution-num">${s.num}</div>
+      <div class="bv-aitech-solution-head">
+        <div class="bv-aitech-solution-icon">
+          ${SOLUTION_ICONS[s.icon] || SOLUTION_ICONS.layers}
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="bv-aitech-solution-title">${s.title}</h3>
+          <div class="bv-aitech-solution-sub">${s.subtitle}</div>
+        </div>
+      </div>
+      <ul class="bv-aitech-solution-features">
+        ${s.features.map((f) => `
+          <li class="bv-aitech-solution-feature">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span>${f}</span>
+          </li>
+        `).join('')}
+      </ul>
+    </article>
+  `).join('');
+
+  // ===== Render alliances =====
+  if (alliancesGrid && typeof AITECHCO_ALLIANCES !== 'undefined') {
+    alliancesGrid.innerHTML = AITECHCO_ALLIANCES.map((a) => `
+      <article class="bv-aitech-alliance reveal-up">
+        <div class="bv-aitech-alliance-icon">
+          ${SOLUTION_ICONS[a.icon] || SOLUTION_ICONS.cloudServer}
+        </div>
+        <h3 class="bv-aitech-alliance-title">${a.title}</h3>
+        <div class="bv-aitech-alliance-sub">${a.subtitle}</div>
+        <p class="bv-aitech-alliance-desc">${a.desc}</p>
+        <div class="bv-aitech-alliance-tags">
+          ${a.tags.map((t) => `<span class="bv-aitech-alliance-tag">${t}</span>`).join('')}
+        </div>
+      </article>
+    `).join('');
+  }
+
+  // Re-run reveal observer for new elements
+  const newReveals = document.querySelectorAll('.reveal-up:not(.is-visible)');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+    newReveals.forEach((el) => observer.observe(el));
+  } else {
+    newReveals.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  // ===== Form chips (multi-select) =====
+  const selectedSolutions = new Set();
+  document.querySelectorAll('[data-aitech-chip]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const key = chip.dataset.aitechChip;
+      if (selectedSolutions.has(key)) {
+        selectedSolutions.delete(key);
+        chip.classList.remove('is-selected');
+      } else {
+        selectedSolutions.add(key);
+        chip.classList.add('is-selected');
+      }
+    });
+  });
+
+  // ===== Form submit =====
+  const form = document.getElementById('aitechco-consult-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.querySelector('[name="name"]').value.trim();
+    const org = form.querySelector('[name="org"]').value.trim();
+    const contact = form.querySelector('[name="contact"]').value.trim();
+
+    if (!name) { alert('Vui lòng nhập họ tên người đại diện'); return; }
+    if (!org) { alert('Vui lòng nhập tên tổ chức / trường học'); return; }
+    if (!contact) { alert('Vui lòng nhập số điện thoại hoặc email'); return; }
+    if (selectedSolutions.size === 0) {
+      alert('Vui lòng chọn ít nhất 1 giải pháp quan tâm');
+      return;
+    }
+
+    showToast(`Cảm ơn ${name}! Đội ngũ Aitechco sẽ liên hệ trong 24h.`);
+    form.reset();
+    document.querySelectorAll('[data-aitech-chip]').forEach((c) => c.classList.remove('is-selected'));
+    selectedSolutions.clear();
   });
 }
