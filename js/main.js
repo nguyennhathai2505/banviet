@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initPathTabs();
   initConsultForm();
   initAiQuizScroll();
+
+  initAnchorBar();
+  initTimelineScroll();
 });
 
 /* ---------- Scroll reveal ---------- */
@@ -200,4 +203,90 @@ function initAiQuizScroll() {
       }
     });
   });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- Anchor Bar: active theo scroll ---------- */
+function initAnchorBar() {
+  const pills = document.querySelectorAll('[data-anchor]');
+  if (!pills.length) return;
+
+  const sections = Array.from(pills).map((p) => ({
+    id: p.dataset.anchor,
+    el: document.getElementById(p.dataset.anchor),
+    pill: p,
+  })).filter((s) => s.el);
+
+  if (!sections.length) return;
+
+  const activate = (id) => {
+    pills.forEach((p) => p.classList.toggle('is-active', p.dataset.anchor === id));
+  };
+
+  // Smooth scroll khi click (mặc định trình duyệt đã lo, chỉ cần class active)
+  pills.forEach((p) => {
+    p.addEventListener('click', () => {
+      // Delay để scroll mượt xong mới active
+      setTimeout(() => activate(p.dataset.anchor), 500);
+    });
+  });
+
+  if (!('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const found = sections.find((s) => s.el === entry.target);
+          if (found) activate(found.id);
+        }
+      });
+    },
+    { rootMargin: '-30% 0px -55% 0px', threshold: 0 }
+  );
+
+  sections.forEach((s) => observer.observe(s.el));
+}
+
+/* ---------- Timeline: beam chạy theo scroll + node sáng ---------- */
+function initTimelineScroll() {
+  const timeline = document.querySelector('[data-timeline]');
+  const beam = document.querySelector('[data-timeline-beam]');
+  const items = document.querySelectorAll('[data-timeline-item]');
+  if (!timeline || !beam || !items.length) return;
+
+  const updateBeam = () => {
+    const rect = timeline.getBoundingClientRect();
+    const windowH = window.innerHeight;
+    // progress: 0 khi timeline bắt đầu vào viewport (bottom chạm viewport bottom)
+    // 1 khi timeline đã đi qua (top chạm viewport top)
+    const total = rect.height;
+    const scrolled = windowH - rect.top;
+    const progress = Math.max(0, Math.min(1, scrolled / total));
+    beam.style.height = `${progress * 100}%`;
+
+    // Active từng node khi beam đi qua
+    const beamY = progress * total; // px từ top của timeline
+    items.forEach((item) => {
+      const itemRect = item.getBoundingClientRect();
+      const itemTopRelative = itemRect.top - rect.top;
+      const itemCenter = itemTopRelative + itemRect.height / 2;
+      const isActive = beamY >= itemCenter - 20;
+      item.classList.toggle('is-active', isActive);
+    });
+  };
+
+  updateBeam();
+  window.addEventListener('scroll', updateBeam, { passive: true });
+  window.addEventListener('resize', updateBeam);
 }

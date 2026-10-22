@@ -27,10 +27,10 @@ const ICONS = {
 
 /* ---------- NAV & ECOSYSTEM DATA ---------- */
 const NAV_ITEMS = [
-  { label: 'Trang chủ', href: './index.html' },
+  { label: 'Trang chủ', href: '../index.html' },
   { label: 'Hệ sinh thái', href: '#he-sinh-thai', dropdown: true },
   { label: 'Khóa học', href: '#khoa-hoc' },
-  { label: 'Về chúng tôi', href: '#ve-chung-toi' },
+  { label: 'Về chúng tôi', href: '../pages/about.html' },
   { label: 'Tin tức', href: '#tin-tuc' },
 ];
 
@@ -67,8 +67,8 @@ class BvHeader extends HTMLElement {
           <div class="flex items-center justify-between h-[72px] gap-3">
 
             <!-- BRAND -->
-            <a href="./index.html" class="flex items-center gap-2.5 flex-shrink-0 group">
-              <img src="./assets/images/logo-banviet.png" alt="Bản Việt" class="h-9 w-auto"
+            <a href="../index.html" class="flex items-center gap-2.5 flex-shrink-0 group">
+              <img src="../assets/images/logo-banviet.png" alt="Bản Việt" class="h-12 w-auto"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
               <div class="hidden flex-col leading-none" style="display:none;">
                 <span class="font-extrabold text-base text-navy tracking-tight">BẢN VIỆT</span>
