@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCoursesPage();
   initAiQuizModal();  
   initNewsPage();
+  initDiem10Page();
 });
 
 /* ---------- Scroll reveal ---------- */
@@ -942,4 +943,229 @@ function initNewsPage() {
 
   // Init
   applyFilter();
+}
+
+
+/* =========================================================
+   DIEM10 PAGE
+   ========================================================= */
+function initDiem10Page() {
+  const grid = document.getElementById('d10-course-grid');
+  if (!grid || typeof DIEM10_COURSES === 'undefined') return;
+
+  const CARD_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg>`;
+
+  // ===== Course cards =====
+  const renderCourse = (c) => `
+    <article class="bv-d10-course" data-d10-id="${c.id}" data-mode="${c.mode}">
+      <div class="bv-d10-thumb">
+        <span class="bv-d10-age-tag">${c.age}</span>
+        <span class="bv-d10-mode-badge">${c.modeBadge}</span>
+        ${CARD_ICON}
+      </div>
+      <div class="bv-d10-body">
+        <h3 class="bv-d10-title">${c.title}</h3>
+        <p class="bv-d10-subtitle">${c.subtitle}</p>
+        <ul class="bv-d10-features">
+          ${c.features.map((f) => `
+            <li class="bv-d10-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>${f}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+      <div class="bv-d10-actions">
+        <button type="button" data-d10-consult="${c.id}" class="bv-d10-btn bv-d10-btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Đăng ký
+        </button>
+        <a href="#" class="bv-d10-btn bv-d10-btn-secondary">
+          Chi tiết
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+  `;
+
+  grid.innerHTML = DIEM10_COURSES.map(renderCourse).join('');
+
+  const cards = Array.from(grid.querySelectorAll('.bv-d10-course'));
+  const tabs = document.querySelectorAll('[data-d10-filter]');
+
+  // ===== Filter tabs =====
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      const filter = tab.dataset.d10Filter;
+
+      cards.forEach((card) => {
+        const show = filter === 'all' || card.dataset.mode === filter;
+        card.classList.toggle('is-hidden', !show);
+      });
+
+      // Update counts
+      updateD10Counts();
+    });
+  });
+
+  const updateD10Counts = () => {
+    const counts = { all: 0, campus: 0, online: 0, summer: 0 };
+    cards.forEach((c) => {
+      const mode = c.dataset.mode;
+      if (counts[mode] !== undefined) counts[mode]++;
+      counts.all++;
+    });
+    document.querySelectorAll('[data-d10-filter]').forEach((tab) => {
+      const k = tab.dataset.d10Filter;
+      const badge = tab.querySelector('.bv-d10-count');
+      if (badge) badge.textContent = counts[k] || 0;
+    });
+  };
+
+  // ===== CTA "Đăng ký" prefill form =====
+  const consultForm = document.getElementById('d10-consult-form');
+  grid.querySelectorAll('[data-d10-consult]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const courseId = btn.dataset.d10Consult;
+      const course = DIEM10_COURSES.find((c) => c.id === courseId);
+      if (!course || !consultForm) return;
+
+      // Prefill grade
+      const gradeSelect = consultForm.querySelector('[name="grade"]');
+      if (gradeSelect && course.age) {
+        const ageMap = {
+          '5–6 tuổi': 'tien-tieu-hoc',
+          'Lớp 6–12': '6',
+          'Lớp 9–12': '9',
+          '7–14 tuổi': '1',
+          'Lớp 1–12': '1',
+          '6–15 tuổi': '6',
+        };
+        const val = ageMap[course.age];
+        if (val) gradeSelect.value = val;
+      }
+
+      // Scroll to form
+      const target = document.getElementById('dang-ky-diem10');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => consultForm.querySelector('[name="name"]')?.focus(), 700);
+      }
+    });
+  });
+
+  // ===== Campus list + map =====
+  const campusList = document.getElementById('d10-campus-list');
+  const mapPins = document.getElementById('d10-map-pins');
+  const infoPanel = document.getElementById('d10-campus-info');
+  const campusSelect = consultForm?.querySelector('[name="campus"]');
+
+  if (campusList && mapPins && typeof DIEM10_CAMPUSES !== 'undefined') {
+    // List items
+    campusList.innerHTML = DIEM10_CAMPUSES.map((c) => `
+      <button type="button" class="bv-campus-item" data-campus-id="${c.id}">
+        <span class="bv-campus-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <div class="min-w-0 flex-1">
+          <div class="bv-campus-item-name">${c.name}</div>
+          <div class="bv-campus-item-addr">${c.address}</div>
+        </div>
+      </button>
+    `).join('');
+
+    // Map pins
+    mapPins.innerHTML = DIEM10_CAMPUSES.map((c, i) => `
+      <g class="bv-map-pin" data-pin-id="${c.id}" transform="translate(${c.pinX}, ${c.pinY})">
+        <circle class="outer" cx="0" cy="0" r="8" fill="rgba(220,38,38,0.15)"/>
+        <circle cx="0" cy="0" r="7" fill="#DC2626" stroke="#fff" stroke-width="2"/>
+        <text x="0" y="3" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" font-weight="800" fill="#fff">${i + 1}</text>
+      </g>
+    `).join('');
+
+    // Fill select
+    if (campusSelect) {
+      DIEM10_CAMPUSES.forEach((c) => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = `${c.name} — ${c.address}`;
+        campusSelect.appendChild(opt);
+      });
+    }
+
+    const activateCampus = (id) => {
+      document.querySelectorAll('[data-campus-id]').forEach((el) => {
+        el.classList.toggle('is-active', el.dataset.campusId === id);
+      });
+      document.querySelectorAll('[data-pin-id]').forEach((el) => {
+        el.classList.toggle('is-active', el.dataset.pinId === id);
+      });
+
+      const c = DIEM10_CAMPUSES.find((x) => x.id === id);
+      if (c && infoPanel) {
+        infoPanel.innerHTML = `
+          <div class="bv-campus-info-title">Cơ sở ${c.name}</div>
+          <div class="bv-campus-info-row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-crimson"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            ${c.address}
+          </div>
+          <div class="bv-campus-info-row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-crimson"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:${c.phone.replace(/\s/g, '')}" class="font-bold text-crimson hover:underline">${c.phone}</a>
+          </div>
+          <div class="bv-campus-info-row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-crimson"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ${c.hours}
+          </div>
+          <div class="bv-campus-info-actions">
+            <a href="https://maps.google.com/?q=${encodeURIComponent(c.address)}" target="_blank" rel="noopener noreferrer" class="bv-campus-info-btn bv-campus-info-btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              Chỉ đường
+            </a>
+            <button type="button" class="bv-campus-info-btn bv-campus-info-btn-primary" data-campus-enroll="${c.id}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Đăng ký
+            </button>
+          </div>
+        `;
+        infoPanel.classList.add('is-shown');
+
+        // Enroll button in panel
+        infoPanel.querySelector('[data-campus-enroll]')?.addEventListener('click', () => {
+          if (campusSelect) campusSelect.value = c.id;
+          document.getElementById('dang-ky-diem10')?.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    };
+
+    campusList.querySelectorAll('[data-campus-id]').forEach((el) => {
+      el.addEventListener('click', () => activateCampus(el.dataset.campusId));
+    });
+    mapPins.querySelectorAll('[data-pin-id]').forEach((el) => {
+      el.addEventListener('click', () => activateCampus(el.dataset.pinId));
+    });
+
+    // Auto-select first
+    activateCampus(DIEM10_CAMPUSES[0].id);
+  }
+
+  // ===== Form submit =====
+  consultForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = consultForm.querySelector('[name="name"]').value.trim();
+    const phone = consultForm.querySelector('[name="phone"]').value.trim();
+    const grade = consultForm.querySelector('[name="grade"]').value;
+
+    if (!name) { alert('Vui lòng nhập họ tên'); return; }
+    if (!phone || !/^[0-9+\s\-().]{8,}$/.test(phone)) { alert('Vui lòng nhập SĐT hợp lệ'); return; }
+    if (!grade) { alert('Vui lòng chọn lớp'); return; }
+
+    showToast(`Cảm ơn ${name}! Chuyên gia Điểm 10+ sẽ liên hệ trong 24h.`);
+    consultForm.reset();
+  });
+
+  // Init
+  updateD10Counts();
 }

@@ -46,7 +46,7 @@ const NAV_ITEMS = [
 ];
 
 const ECOSYSTEM = [
-  { iconKey: 'gradCap', name: 'Điểm 10+', desc: 'Smart Culture & K12', href: '#diem10' },
+  { iconKey: 'gradCap', name: 'Điểm 10+', desc: 'Smart Culture & K12', href: 'pages/diem10.html ' },
   { iconKey: 'chatLang', name: 'DanhLingo', desc: 'Rapid Language Engine', href: '#danhlingo' },
   { iconKey: 'codeChip', name: 'Aitechco', desc: 'EdTech Core & Infrastructure', href: '#aitechco' },
   { iconKey: 'school', name: 'Schooli', desc: 'Virtual Campus 24/7', href: '#schooli' },
